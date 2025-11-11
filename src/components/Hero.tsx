@@ -12,20 +12,12 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex items-center justify-center gradient-hero">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-up">
-          <div className="mb-8 flex justify-center">
-            <img 
-              src="/profile.jpg" 
-              alt="Avi Guha" 
-              className="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover shadow-xl ring-4 ring-accent/20"
-            />
-          </div>
-          
           <h1 className="text-balance mb-6">
             Avi Guha
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 text-balance">
-            Engineering Physics Student & Researcher
+            Engineering Physics Student
           </p>
           
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed text-balance">
