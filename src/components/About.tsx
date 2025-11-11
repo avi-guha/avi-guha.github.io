@@ -50,16 +50,12 @@ const About = () => {
           <div className="animate-fade-up">
             <div className="relative">
               <div className="aspect-square rounded-2xl bg-gradient-primary p-1">
-                <div className="w-full h-full rounded-xl bg-background flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">🔬</div>
-                    <p className="text-muted-foreground">
-                      Engineering Physics
-                    </p>
-                    <p className="text-muted-foreground text-sm">
-                      Student & Researcher
-                    </p>
-                  </div>
+                <div className="w-full h-full rounded-xl overflow-hidden">
+                  <img 
+                    src="/profile.jpg" 
+                    alt="Avi Guha - Engineering Physics Student" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
