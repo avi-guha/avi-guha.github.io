@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import Hero from "../components/Hero";
 import About from "../components/About";
@@ -8,6 +10,23 @@ import Resume from "../components/Resume";
 import Contact from "../components/Contact";
 
 const Index = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Scroll to top by default
+    window.scrollTo(0, 0);
+    
+    // If there's a scrollTo state, scroll to that section after a brief delay
+    if (location.state?.scrollTo) {
+      setTimeout(() => {
+        const element = document.getElementById(location.state.scrollTo);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, [location]);
+
   return (
     <div className="min-h-screen">
       <Navigation />

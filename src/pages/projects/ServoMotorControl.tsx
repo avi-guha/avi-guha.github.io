@@ -1,8 +1,19 @@
+import { useEffect } from "react";
 import { ArrowLeft, Github } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Navigation from "../../components/Navigation";
 
 const ServoMotorControl = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleBackClick = () => {
+    navigate('/', { state: { scrollTo: 'projects' } });
+  };
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -10,13 +21,13 @@ const ServoMotorControl = () => {
       <main className="pt-20">
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Link 
-              to="/"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors mb-8"
+            <button 
+              onClick={handleBackClick}
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors mb-8 cursor-pointer"
             >
               <ArrowLeft size={20} />
-              Back to Portfolio
-            </Link>
+              Back to Projects
+            </button>
 
             <div className="mb-8">
               <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
