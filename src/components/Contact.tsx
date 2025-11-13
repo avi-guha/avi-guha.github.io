@@ -25,13 +25,12 @@ const Contact = () => {
     try {
       // EmailJS configuration
       const result = await emailjs.send(
-        'service_3hkozab', // Your EmailJS service ID
+        'service_3hkozab', // Your EmailJS service ID        New Portfolio Message from {{from_name}}
         'template_gi3fp3j', // Your EmailJS template ID
         {
           from_name: formData.name,
-          from_email: formData.email,
+          reply_to: formData.email,  // Changed from from_email to reply_to (EmailJS default)
           message: formData.message,
-          to_email: 'avi.guha05@gmail.com',
         },
         '5-dtEr0uA1LPYYPfT' // Your EmailJS public key
       );
