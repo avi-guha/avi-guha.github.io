@@ -56,6 +56,42 @@ const Projects = () => {
       liveUrl: "#",
       category: "Mechatronics",
       slug: "autonomous-claw"
+    },
+    {
+      title: "Break Beam Board",
+      description: "Redesigned break beam system for UBC Thunderbots with multiple photodiodes in series configuration (AND gate logic) to eliminate false positives from debris. Ball detection system controls dribbler engagement.",
+      technologies: ["PCB Design", "Photodiodes", "Digital Logic", "Altium"],
+      githubUrl: "https://github.com/avi-guha",
+      liveUrl: "#",
+      category: "Robotics",
+      slug: "break-beam-board"
+    },
+    {
+      title: "ROS Clue Detective",
+      description: "Developed a robot in ROS Gazebo environment capable of line following and sign recognition using CNNs. Implemented imitation learning for collision avoidance and reinforcement learning with custom reward system.",
+      technologies: ["Python", "ROS", "Machine Learning", "Computer Vision", "TensorFlow"],
+      githubUrl: "https://github.com/avi-guha",
+      liveUrl: "#",
+      category: "Machine Learning",
+      slug: "ros-clue-detective"
+    },
+    {
+      title: "CAN Prototype Board",
+      description: "Designed prototype board for converting motor drivers from SPI to CAN bus, minimizing noise interference. Features differential impedance matching and custom PCB layout for robust communication.",
+      technologies: ["CAN Protocol", "PCB Design", "Differential Signaling", "Altium"],
+      githubUrl: "https://github.com/avi-guha",
+      liveUrl: "#",
+      category: "Hardware Design",
+      slug: "can-prototype"
+    },
+    {
+      title: "Thunderbots Motor Driver",
+      description: "Redesigned modular hot-swappable motor driver with 10x size reduction while adding CAN interface. Implemented sensorless field oriented control (FOC) firmware for precise motor control.",
+      technologies: ["PCB Design", "Embedded C", "FOC", "CAN Protocol", "Altium"],
+      githubUrl: "https://github.com/avi-guha",
+      liveUrl: "#",
+      category: "Robotics",
+      slug: "thunderbots-motor-driver"
     }
   ];
 
