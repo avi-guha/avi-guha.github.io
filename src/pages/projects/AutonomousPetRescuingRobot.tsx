@@ -57,7 +57,6 @@ const AutonomousPetRescuingRobot = () => {
                 <img src="/projects/H-Bridge.png" alt="H-Bridge PCB Design" className="w-full rounded-lg shadow-md" />
                 <img src="/projects/RobotMotherBoardSch.png" alt="Robot Motherboard Schematic" className="w-full rounded-lg shadow-md" />
                 <img src="/projects/MotherboardPCB.png" alt="Motherboard PCB" className="w-full rounded-lg shadow-md" />
-                <img src="/projects/MD-PCB.png" alt="Motor Driver PCB" className="w-full rounded-lg shadow-md" />
               </div>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Key Features</h2>

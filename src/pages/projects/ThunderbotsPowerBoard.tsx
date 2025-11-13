@@ -70,19 +70,6 @@ const ThunderbotsPowerBoard = () => {
                   <img src="/projects/DischargerSch.png" alt="Discharger Schematic" className="w-full rounded-lg shadow-md mb-2" />
                   <p className="text-sm text-muted-foreground text-center">Discharger Circuit</p>
                 </div>
-                <div>
-                  <img src="/projects/CANSch.png" alt="CAN Communication Schematic" className="w-full rounded-lg shadow-md mb-2" />
-                  <p className="text-sm text-muted-foreground text-center">CAN Communication Interface</p>
-                </div>
-                <div>
-                  <img src="/projects/CANPCB.png" alt="CAN PCB Layout" className="w-full rounded-lg shadow-md mb-2" />
-                  <p className="text-sm text-muted-foreground text-center">CAN PCB Layout</p>
-                </div>
-              </div>
-
-              <div className="mb-8">
-                <img src="/projects/Breakbeam.png" alt="IR Break-beam Sensor" className="w-full md:w-2/3 mx-auto rounded-lg shadow-md" />
-                <p className="text-sm text-muted-foreground text-center mt-2">Infrared Break-beam Sensor Design</p>
               </div>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Key Features</h2>
@@ -98,10 +85,6 @@ const ThunderbotsPowerBoard = () => {
                 <li className="flex gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0 mt-2"></div>
                   <span className="text-muted-foreground">CAN communication interface increasing board-board communication speed by 1000%</span>
-                </li>
-                <li className="flex gap-3">
-                  <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0 mt-2"></div>
-                  <span className="text-muted-foreground">Infrared break-beam sensor for ball possession detection</span>
                 </li>
               </ul>
 

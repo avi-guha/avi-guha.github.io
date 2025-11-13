@@ -12,6 +12,10 @@ import RCCar from "./pages/projects/RCCar";
 import ThunderbotsPowerBoard from "./pages/projects/ThunderbotsPowerBoard";
 import AFMMaterialsAnalysis from "./pages/projects/AFMMaterialsAnalysis";
 import AutonomousClaw from "./pages/projects/AutonomousClaw";
+import BreakBeamBoard from "./pages/projects/BreakBeamBoard";
+import RosClueDetective from "./pages/projects/RosClueDetective";
+import CANPrototype from "./pages/projects/CANPrototype";
+import ThunderbotsMotorDriver from "./pages/projects/ThunderbotsMotorDriver";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +34,10 @@ const App = () => (
             <Route path="/projects/thunderbots-power-board" element={<ThunderbotsPowerBoard />} />
             <Route path="/projects/afm-materials-analysis" element={<AFMMaterialsAnalysis />} />
             <Route path="/projects/autonomous-claw" element={<AutonomousClaw />} />
+            <Route path="/projects/break-beam-board" element={<BreakBeamBoard />} />
+            <Route path="/projects/ros-clue-detective" element={<RosClueDetective />} />
+            <Route path="/projects/can-prototype" element={<CANPrototype />} />
+            <Route path="/projects/thunderbots-motor-driver" element={<ThunderbotsMotorDriver />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

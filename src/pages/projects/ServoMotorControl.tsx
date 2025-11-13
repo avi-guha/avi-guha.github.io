@@ -65,15 +65,6 @@ const ServoMotorControl = () => {
                 implemented with digital logic components and photonics.
               </p>
 
-              <div className="mb-8">
-                <img 
-                  src="/projects/ROS.png" 
-                  alt="ROS Integration" 
-                  className="w-full md:w-2/3 mx-auto rounded-lg shadow-md"
-                />
-                <p className="text-sm text-muted-foreground text-center mt-2">System Integration</p>
-              </div>
-
               <h2 className="text-2xl font-semibold mb-4 text-accent">Key Features</h2>
               <ul className="space-y-3 mb-8">
                 <li className="flex gap-3">
