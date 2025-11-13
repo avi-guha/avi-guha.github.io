@@ -72,19 +72,22 @@ const ServoMotorControl = () => {
 
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                Developed a fully analog circuit to control and adjust motor output speed using a PID feedback loop 
-                implemented with digital logic components and photonics.
+                Engineered a fully analog PID control system using discrete digital logic components and optoelectronics, demonstrating 
+                deep understanding of control theory fundamentals without relying on microcontrollers or software. Designed and implemented 
+                complete feedback control architecture achieving stable motor speed regulation through hardware-only implementation of 
+                proportional-integral-derivative algorithms—a challenging feat requiring expertise in analog circuit design, digital logic, 
+                and control systems theory.
               </p>
 
-              <h2 className="text-2xl font-semibold mb-4 text-accent">Key Features</h2>
+              <h2 className="text-2xl font-semibold mb-4 text-accent">Key Achievements</h2>
               <ul className="space-y-3 mb-8">
                 <li className="flex gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0 mt-2"></div>
-                  <span className="text-muted-foreground">PID feedback loop implemented completely with digital circuit components</span>
+                  <span className="text-muted-foreground">Implemented complete PID feedback loop using only analog components and combinational logic circuits</span>
                 </li>
                 <li className="flex gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0 mt-2"></div>
-                  <span className="text-muted-foreground">Utilized flip-flops, counters, and latches for motor speed storage</span>
+                  <span className="text-muted-foreground">Designed state storage system using flip-flops, counters, and latches for motor speed reference memory</span>
                 </li>
                 <li className="flex gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0 mt-2"></div>
