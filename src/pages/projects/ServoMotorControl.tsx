@@ -38,11 +38,41 @@ const ServoMotorControl = () => {
               </a>
             </div>
 
+            <div className="mb-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <img 
+                    src="/projects/ServoSpeedControlSch.png" 
+                    alt="Servo Speed Control Schematic" 
+                    className="w-full rounded-lg shadow-lg"
+                  />
+                  <p className="text-sm text-muted-foreground text-center mt-2">Control Circuit Schematic</p>
+                </div>
+                <div>
+                  <img 
+                    src="/projects/ServoSpeedControlCircuit.png" 
+                    alt="Servo Speed Control Circuit Layout" 
+                    className="w-full rounded-lg shadow-lg"
+                  />
+                  <p className="text-sm text-muted-foreground text-center mt-2">Physical Circuit Implementation</p>
+                </div>
+              </div>
+            </div>
+
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">
                 Developed a fully analog circuit to control and adjust motor output speed using a PID feedback loop 
                 implemented with digital logic components and photonics.
               </p>
+
+              <div className="mb-8">
+                <img 
+                  src="/projects/ROS.png" 
+                  alt="ROS Integration" 
+                  className="w-full md:w-2/3 mx-auto rounded-lg shadow-md"
+                />
+                <p className="text-sm text-muted-foreground text-center mt-2">System Integration</p>
+              </div>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Key Features</h2>
               <ul className="space-y-3 mb-8">

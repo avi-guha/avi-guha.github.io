@@ -38,11 +38,27 @@ const AutonomousPetRescuingRobot = () => {
               </a>
             </div>
 
+            <div className="mb-12">
+              <img 
+                src="/projects/FinalRobot.png" 
+                alt="Autonomous Pet Rescuing Robot" 
+                className="w-full rounded-lg shadow-lg"
+              />
+            </div>
+
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">
                 Developed an autonomous robot with computer vision capabilities to navigate courses and collect plushies. 
                 Features H-Bridge PCB design, PID motor control, and CV-Hardware integration using UART communication.
               </p>
+
+              <h2 className="text-2xl font-semibold mb-4 text-accent">Project Images</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <img src="/projects/H-Bridge.png" alt="H-Bridge PCB Design" className="w-full rounded-lg shadow-md" />
+                <img src="/projects/RobotMotherBoardSch.png" alt="Robot Motherboard Schematic" className="w-full rounded-lg shadow-md" />
+                <img src="/projects/MotherboardPCB.png" alt="Motherboard PCB" className="w-full rounded-lg shadow-md" />
+                <img src="/projects/MD-PCB.png" alt="Motor Driver PCB" className="w-full rounded-lg shadow-md" />
+              </div>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Key Features</h2>
               <ul className="space-y-3 mb-8">

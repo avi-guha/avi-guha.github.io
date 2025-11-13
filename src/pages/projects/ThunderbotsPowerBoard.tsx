@@ -38,12 +38,52 @@ const ThunderbotsPowerBoard = () => {
               </a>
             </div>
 
+            <div className="mb-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <img 
+                  src="/projects/PWR-PCB1.png" 
+                  alt="Thunderbots Power Board - Top View" 
+                  className="w-full rounded-lg shadow-lg"
+                />
+                <img 
+                  src="/projects/PWR-PCB2.png" 
+                  alt="Thunderbots Power Board - Bottom View" 
+                  className="w-full rounded-lg shadow-lg"
+                />
+              </div>
+            </div>
+
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">
                 Designed and developed a power distribution board for autonomous soccer robots competing at 
                 international Robocup competition. Features voltage isolation, flyback converter circuits, 
                 and CAN communication interface.
               </p>
+
+              <h2 className="text-2xl font-semibold mb-4 text-accent">Circuit Schematics</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div>
+                  <img src="/projects/FlybackSch.png" alt="Flyback Converter Schematic" className="w-full rounded-lg shadow-md mb-2" />
+                  <p className="text-sm text-muted-foreground text-center">Flyback Converter Circuit</p>
+                </div>
+                <div>
+                  <img src="/projects/DischargerSch.png" alt="Discharger Schematic" className="w-full rounded-lg shadow-md mb-2" />
+                  <p className="text-sm text-muted-foreground text-center">Discharger Circuit</p>
+                </div>
+                <div>
+                  <img src="/projects/CANSch.png" alt="CAN Communication Schematic" className="w-full rounded-lg shadow-md mb-2" />
+                  <p className="text-sm text-muted-foreground text-center">CAN Communication Interface</p>
+                </div>
+                <div>
+                  <img src="/projects/CANPCB.png" alt="CAN PCB Layout" className="w-full rounded-lg shadow-md mb-2" />
+                  <p className="text-sm text-muted-foreground text-center">CAN PCB Layout</p>
+                </div>
+              </div>
+
+              <div className="mb-8">
+                <img src="/projects/Breakbeam.png" alt="IR Break-beam Sensor" className="w-full md:w-2/3 mx-auto rounded-lg shadow-md" />
+                <p className="text-sm text-muted-foreground text-center mt-2">Infrared Break-beam Sensor Design</p>
+              </div>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Key Features</h2>
               <ul className="space-y-3 mb-8">
