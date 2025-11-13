@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Mail, MapPin, Phone, Github, Linkedin } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -7,15 +8,37 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
     
-    const { name, email, message } = formData;
-    const subject = `Message from ${name} via Portfolio`;
-    const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-    
-    window.location.href = `mailto:avi.guha05@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    try {
+      // EmailJS configuration
+      // You'll need to sign up at https://www.emailjs.com/ and get your keys
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'avi.guha05@gmail.com',
+        },
+        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+      );
+      
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -166,10 +189,23 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full btn-accent"
+                  disabled={isSubmitting}
+                  className="w-full btn-accent disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
+
+                {submitStatus === 'success' && (
+                  <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-600 dark:text-green-400 text-center">
+                    ✓ Message sent successfully! I'll get back to you soon.
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-600 dark:text-red-400 text-center">
+                    ✗ Failed to send message. Please email me directly at avi.guha05@gmail.com
+                  </div>
+                )}
               </form>
             </div>
           </div>
