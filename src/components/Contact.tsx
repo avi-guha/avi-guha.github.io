@@ -20,15 +20,15 @@ const Contact = () => {
       // EmailJS configuration
       // You'll need to sign up at https://www.emailjs.com/ and get your keys
       await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        'service_3hkozab', // Replace with your EmailJS service ID
+        'template_gi3fp3j', // Replace with your EmailJS template ID
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
           to_email: 'avi.guha05@gmail.com',
         },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+        '5-dtEr0uA1LPYYPfT' // Replace with your EmailJS public key
       );
       
       setSubmitStatus('success');
