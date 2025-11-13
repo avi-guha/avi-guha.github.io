@@ -16,25 +16,32 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
     
+    console.log('Attempting to send email with data:', {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+    });
+    
     try {
       // EmailJS configuration
-      // You'll need to sign up at https://www.emailjs.com/ and get your keys
-      await emailjs.send(
-        'service_3hkozab', // Replace with your EmailJS service ID
-        'template_gi3fp3j', // Replace with your EmailJS template ID
+      const result = await emailjs.send(
+        'service_3hkozab', // Your EmailJS service ID
+        'template_gi3fp3j', // Your EmailJS template ID
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
           to_email: 'avi.guha05@gmail.com',
         },
-        '5-dtEr0uA1LPYYPfT' // Replace with your EmailJS public key
+        '5-dtEr0uA1LPYYPfT' // Your EmailJS public key
       );
       
+      console.log('Email sent successfully!', result);
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       console.error('Failed to send email:', error);
+      console.error('Error details:', JSON.stringify(error, null, 2));
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
