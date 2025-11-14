@@ -7,7 +7,7 @@ const Projects = () => {
       title: "Autonomous Pet Rescuing Robot",
       description: "Architected end-to-end autonomous mobile robot with custom PCB hardware, YOLOv11-powered computer vision (90%+ accuracy), and dual-core FreeRTOS achieving <1ms control loops. Full-stack development from circuit design to ML model training with Roboflow.",
       technologies: ["C++", "Python", "YOLOv11", "Roboflow", "PCB Design", "FreeRTOS", "Raspberry Pi", "ESP-32"],
-      githubUrl: "https://github.com/KazuoCalvin/ENPH-253-ROBO-SUMMER-",
+      githubUrl: "https://github.com/avi-guha/ROBOT",
       category: "Robotics & AI",
       slug: "autonomous-pet-rescuing-robot"
     },

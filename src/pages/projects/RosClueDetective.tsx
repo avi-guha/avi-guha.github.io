@@ -39,7 +39,7 @@ const RosClueDetective = () => {
             
             <div className="flex gap-4 mb-12">
               <a
-                href="https://github.com/avi-guha"
+                href="https://github.com/avi-guha/ENPH-353-COMPETITION"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
