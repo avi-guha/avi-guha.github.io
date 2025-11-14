@@ -59,42 +59,43 @@ const ThunderbotsMotorDriver = () => {
 
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                Spearheaded complete redesign of UBC Thunderbots' motor driver subsystem, achieving a revolutionary 10x miniaturization while 
-                simultaneously adding advanced CAN communication and implementing production-grade sensorless Field Oriented Control (FOC). 
-                Delivered a mission-critical hot-swappable modular architecture enabling field repairs during international RoboCup competition, 
-                combining expertise in high-density PCB design, power electronics, embedded firmware development, and advanced motor control algorithms.
+                When I joined Thunderbots, I took on the challenge of completely redesigning the motor driver—a critical component that needed 
+                to be 90% smaller while actually adding more features. I spent months learning about high-density PCB design, teaching myself 
+                Field Oriented Control algorithms, and diving deep into CAN protocol implementation. The result? A compact 4-layer board that 
+                not only fit in tight spaces but could be swapped out in under 30 seconds during competitions—a game-changer when every second counts.
               </p>
 
-              <h2 className="text-2xl font-semibold mb-4 text-accent">Key Achievements</h2>
+              <h2 className="text-2xl font-semibold mb-4 text-accent">What I Built</h2>
               <ul className="space-y-3 mb-8">
                 <li className="flex gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0 mt-2"></div>
-                  <span className="text-muted-foreground">Achieved 90% footprint reduction through 8-layer HDI PCB design with 4mil traces and micro-vias</span>
+                  <span className="text-muted-foreground">Shrunk the board by 90% using a 4-layer HDI design with micro-vias—learned advanced PCB layout from scratch</span>
                 </li>
                 <li className="flex gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0 mt-2"></div>
-                  <span className="text-muted-foreground">Implemented sensorless FOC firmware delivering 95% motor efficiency with sub-millisecond torque response</span>
+                  <span className="text-muted-foreground">Taught myself sensorless FOC and implemented firmware that achieved 95% motor efficiency</span>
                 </li>
                 <li className="flex gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0 mt-2"></div>
-                  <span className="text-muted-foreground">Integrated CAN 2.0B protocol for real-time motor telemetry and closed-loop position control</span>
+                  <span className="text-muted-foreground">Integrated CAN communication for real-time telemetry—my first deep dive into automotive protocols</span>
                 </li>
                 <li className="flex gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0 mt-2"></div>
-                  <span className="text-muted-foreground">Designed standardized connector interface enabling &lt;30-second driver replacement during competition</span>
+                  <span className="text-muted-foreground">Designed a hot-swap connector system that saved us countless times during competitions</span>
                 </li>
                 <li className="flex gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0 mt-2"></div>
-                  <span className="text-muted-foreground">Validated thermal performance through FEA simulation ensuring reliable operation at 20A continuous current</span>
+                  <span className="text-muted-foreground">Ran thermal simulations to ensure it could handle 20A continuously without overheating</span>
                 </li>
               </ul>
 
-              <h2 className="text-2xl font-semibold mb-4 text-accent">Technical Innovation</h2>
+              <h2 className="text-2xl font-semibold mb-4 text-accent">The Learning Journey</h2>
               <p className="text-muted-foreground mb-6">
-                Overcame extreme space constraints through advanced layout optimization including power plane splitting, strategic component placement, 
-                and thermal management integration. Developed sophisticated FOC algorithms estimating rotor position from back-EMF measurements, 
-                eliminating expensive encoder hardware while maintaining precise control. This project demonstrates full-stack embedded systems 
-                capability spanning power electronics design, real-time firmware development, control theory implementation, and manufacturing for reliability.
+                This project pushed me way beyond my comfort zone. I had to master power plane design, figure out how to estimate motor 
+                position without encoders (using back-EMF readings), and ensure everything stayed cool under intense 20A loads. The hardest 
+                part? Fitting everything into such a tiny space while maintaining signal integrity. But seeing the robots zip around the 
+                field with my drivers inside made every late night worth it. This project taught me that I genuinely enjoy the challenge 
+                of making things smaller, smarter, and more reliable.
               </p>
             </div>
           </div>

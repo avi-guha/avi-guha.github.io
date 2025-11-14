@@ -59,11 +59,11 @@ const AutonomousPetRescuingRobot = () => {
 
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                Architected and deployed a fully autonomous mobile robot featuring real-time computer vision, custom PCB hardware, and 
-                multi-threaded embedded systems integration. Achieved 90%+ object recognition accuracy using custom-trained CNNs while 
-                maintaining &lt;1ms control loop latency through optimized FreeRTOS task scheduling. Led complete project lifecycle from 
-                circuit design and PCB fabrication to embedded firmware and computer vision model training—demonstrating end-to-end 
-                robotics development capability.
+                This was my introduction to building a complete robot from the ground up. My team and I designed custom PCBs, trained our 
+                own computer vision models, and wrote all the firmware to make it navigate autonomously. The moment it first recognized a 
+                "pet" and drove over to rescue it felt incredible. We hit 90%+ recognition accuracy after countless hours of model training, 
+                and managed to keep the control loops running at under 1ms by carefully optimizing our FreeRTOS task scheduling. This project 
+                showed me I love the challenge of bringing together hardware, firmware, and AI into one working system.
               </p>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Project Images</h2>

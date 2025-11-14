@@ -59,10 +59,11 @@ const RosClueDetective = () => {
 
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                Developed an autonomous navigation system combining deep learning and computer vision for a simulated robot operating in 
-                complex urban environments. Architected and trained a multi-stage ML pipeline featuring custom CNNs for sign recognition 
-                achieving 95%+ accuracy, paired with an imitation learning framework for zero-collision autonomous navigation—all implemented 
-                from scratch in ROS Gazebo without relying on pre-trained models.
+                I dove headfirst into machine learning with this project, teaching myself everything from scratch—no pre-trained models allowed. 
+                The challenge was to build a robot in ROS Gazebo that could navigate city streets while reading traffic signs. I designed my 
+                own CNN architecture, collected and augmented training data, and implemented an imitation learning system that learned to drive 
+                by watching demonstrations. After weeks of training and debugging, I hit 95%+ sign recognition accuracy and achieved zero collisions. 
+                This project sparked my fascination with how robots can learn to perceive and interact with the world.
               </p>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Key Achievements</h2>
