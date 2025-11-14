@@ -1,4 +1,4 @@
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { Github, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Projects = () => {
@@ -7,8 +7,7 @@ const Projects = () => {
       title: "Autonomous Pet Rescuing Robot",
       description: "Architected end-to-end autonomous mobile robot with custom PCB hardware, real-time computer vision (90%+ accuracy), and dual-core FreeRTOS achieving <1ms control loops. Full-stack development from circuit design to ML model training.",
       technologies: ["C++", "Python", "Computer Vision", "PCB Design", "FreeRTOS", "Raspberry Pi", "ESP-32"],
-      githubUrl: "https://github.com/avi-guha",
-      liveUrl: "#",
+      githubUrl: "https://github.com/KazuoCalvin/ENPH-253-ROBO-SUMMER-",
       category: "Robotics & AI",
       slug: "autonomous-pet-rescuing-robot"
     },
@@ -17,7 +16,6 @@ const Projects = () => {
       description: "Engineered hardware-only PID control system using discrete logic components and optoelectronics. Achieved stable motor speed regulation without microcontrollers—demonstrating mastery of analog circuit design and control theory fundamentals.",
       technologies: ["Digital Logic", "Operational Amplifiers", "DAC", "Circuit Design"],
       githubUrl: "https://github.com/avi-guha",
-      liveUrl: "#",
       category: "Electronics",
       slug: "servo-motor-control"
     },
@@ -25,8 +23,7 @@ const Projects = () => {
       title: "PS4 Controller RC Car",
       description: "Programmed an ESP-32 microcontroller to interface with a PS4 controller via Bluetooth, enabling precise control of a servo motor and brushless DC motor. Includes custom 3D-modeled chassis designed in Solidworks.",
       technologies: ["C++", "ESP-32", "Bluetooth", "Solidworks", "PCB Design"],
-      githubUrl: "https://github.com/avi-guha",
-      liveUrl: "#",
+      githubUrl: "https://github.com/timboSlice-k/rc-car",
       category: "Embedded Systems",
       slug: "rc-car"
     },
@@ -35,7 +32,6 @@ const Projects = () => {
       description: "Designed mission-critical power system for RoboCup robots managing >200V capacitor charging with 92% efficiency flyback converter. Integrated CAN bus achieving 1000% communication speed improvement. Competition-proven reliability.",
       technologies: ["Altium", "Power Electronics", "CAN Protocol", "Circuit Design"],
       githubUrl: "https://github.com/avi-guha",
-      liveUrl: "#",
       category: "Robotics",
       slug: "thunderbots-power-board"
     },
@@ -43,8 +39,7 @@ const Projects = () => {
       title: "2D Materials AFM Analysis",
       description: "Developed a Java application using OpenCV to visualize and analyze progressive decay of monolayer graphene and MXene flakes. Implemented PID-controlled humidity regulation for atomic force microscopy experiments.",
       technologies: ["Java", "OpenCV", "PID Control", "Materials Science"],
-      githubUrl: "https://github.com/avi-guha",
-      liveUrl: "#",
+      githubUrl: "https://github.com/avi-guha/EdgeDetectionApp",
       category: "Research",
       slug: "afm-materials-analysis"
     },
@@ -53,7 +48,6 @@ const Projects = () => {
       description: "First microcontroller project featuring an Arduino-controlled claw mechanism capable of picking up objects of varying sizes, shapes, and masses. Hands-on experience with metalworking and mechanical design.",
       technologies: ["Arduino", "C++", "Mechanical Design", "Prototyping"],
       githubUrl: "https://github.com/avi-guha",
-      liveUrl: "#",
       category: "Mechatronics",
       slug: "autonomous-claw"
     },
@@ -62,7 +56,6 @@ const Projects = () => {
       description: "Eliminated 95%+ false detections through innovative multi-photodiode AND-gate architecture. Redesigned ball detection system for UBC Thunderbots achieving near-perfect reliability in debris-filled competition environments.",
       technologies: ["PCB Design", "Photodiodes", "Digital Logic", "Altium"],
       githubUrl: "https://github.com/avi-guha",
-      liveUrl: "#",
       category: "Robotics",
       slug: "break-beam-board"
     },
@@ -70,8 +63,7 @@ const Projects = () => {
       title: "ROS Clue Detective",
       description: "Built autonomous navigation system with custom CNNs achieving 95%+ sign recognition accuracy and zero-collision imitation learning. Self-taught reinforcement learning and implemented custom reward functions—all from scratch in ROS Gazebo.",
       technologies: ["Python", "ROS", "Machine Learning", "Computer Vision", "TensorFlow"],
-      githubUrl: "https://github.com/avi-guha",
-      liveUrl: "#",
+      githubUrl: "https://github.com/avi-guha/ENPH-353-COMPETITION",
       category: "Machine Learning",
       slug: "ros-clue-detective"
     },
@@ -79,8 +71,7 @@ const Projects = () => {
       title: "CAN Prototype Board",
       description: "Led SPI-to-CAN migration improving communication reliability 10x. Mastered differential impedance matching, signal integrity analysis, and high-speed PCB design—achieving professional-grade 120Ω ±5% impedance control.",
       technologies: ["CAN Protocol", "PCB Design", "Differential Signaling", "Altium"],
-      githubUrl: "https://github.com/avi-guha",
-      liveUrl: "#",
+      githubUrl: "https://github.com/avi-guha/CanFirmwareTesting",
       category: "Hardware Design",
       slug: "can-prototype"
     },
@@ -89,7 +80,6 @@ const Projects = () => {
       description: "Achieved 90% footprint reduction through 8-layer HDI PCB design while adding CAN interface. Implemented sensorless FOC firmware delivering 95% motor efficiency with <30-second hot-swap capability for competition reliability.",
       technologies: ["PCB Design", "Embedded C", "FOC", "CAN Protocol", "Altium"],
       githubUrl: "https://github.com/avi-guha",
-      liveUrl: "#",
       category: "Robotics",
       slug: "thunderbots-motor-driver"
     }
@@ -142,19 +132,13 @@ const Projects = () => {
               <div className="flex gap-4 pt-4 border-t border-border">
                 <a
                   href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
                   aria-label={`View ${project.title} on GitHub`}
                 >
                   <Github size={16} />
                   <span className="text-sm">Code</span>
-                </a>
-                <a
-                  href={project.liveUrl}
-                  className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
-                  aria-label={`View ${project.title} live demo`}
-                >
-                  <ExternalLink size={16} />
-                  <span className="text-sm">Demo</span>
                 </a>
                 <Link
                   to={`/projects/${project.slug}`}
