@@ -63,7 +63,7 @@ export default function ScrollParticles() {
       size: 0.2,
       color: getParticleColor(),
       transparent: true,
-      opacity: 0.5, // Increased opacity
+      opacity: 0.65, // Increased opacity
       blending: THREE.AdditiveBlending,
     });
 
@@ -78,7 +78,7 @@ export default function ScrollParticles() {
     const linesMaterial = new THREE.LineBasicMaterial({
       color: getParticleColor(),
       transparent: true,
-      opacity: 0.12, // Increased line opacity
+      opacity: 0.2, // Increased line opacity
       blending: THREE.AdditiveBlending,
     });
 
