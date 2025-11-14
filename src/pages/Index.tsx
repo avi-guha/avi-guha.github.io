@@ -8,6 +8,7 @@ import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import Resume from "../components/Resume";
 import Contact from "../components/Contact";
+import ScrollParticles from "../components/ScrollParticles";
 
 const Index = () => {
   const location = useLocation();
@@ -29,6 +30,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <ScrollParticles />
       <Navigation />
       <main>
         <Hero />
