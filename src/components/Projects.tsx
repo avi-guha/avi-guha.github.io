@@ -23,7 +23,7 @@ const Projects = () => {
       title: "PS4 Controller RC Car",
       description: "Programmed an ESP-32 microcontroller to interface with a PS4 controller via Bluetooth, enabling precise control of a servo motor and brushless DC motor. Includes custom 3D-modeled chassis designed in Solidworks.",
       technologies: ["C++", "ESP-32", "Bluetooth", "Solidworks", "PCB Design"],
-      githubUrl: "https://github.com/timboSlice-k/rc-car",
+      githubUrl: "https://github.com/avi-guha/RC-Car",
       category: "Embedded Systems",
       slug: "rc-car"
     },
