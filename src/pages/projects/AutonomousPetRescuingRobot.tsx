@@ -60,10 +60,11 @@ const AutonomousPetRescuingRobot = () => {
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">
                 This was my introduction to building a complete robot from the ground up. My team and I designed custom PCBs, trained our 
-                own computer vision models, and wrote all the firmware to make it navigate autonomously. The moment it first recognized a 
-                "pet" and drove over to rescue it felt incredible. We hit 90%+ recognition accuracy after countless hours of model training, 
-                and managed to keep the control loops running at under 1ms by carefully optimizing our FreeRTOS task scheduling. This project 
-                showed me I love the challenge of bringing together hardware, firmware, and AI into one working system.
+                own computer vision models using YOLOv11 and Roboflow, and wrote all the firmware to make it navigate autonomously. The moment 
+                it first recognized a "pet" and drove over to rescue it felt incredible. We achieved 100% line following accuracy and hit 90%+ 
+                object recognition after countless hours of model training. By carefully optimizing our FreeRTOS task scheduling, we kept the 
+                control loops running at under 1ms. This project showed me I love the challenge of bringing together hardware, firmware, and AI 
+                into one working system.
               </p>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Project Images</h2>
@@ -77,11 +78,15 @@ const AutonomousPetRescuingRobot = () => {
               <ul className="space-y-3 mb-8">
                 <li className="flex gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0 mt-2"></div>
-                  <span className="text-muted-foreground">Designed custom H-Bridge PCB with PID motor control achieving ±2% speed regulation accuracy</span>
+                  <span className="text-muted-foreground">Designed custom H-Bridge PCB with PID motor control for precise movement</span>
                 </li>
                 <li className="flex gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0 mt-2"></div>
-                  <span className="text-muted-foreground">Trained custom CNN model recognizing target objects with 90%+ confidence interval using TensorFlow</span>
+                  <span className="text-muted-foreground">Trained YOLOv11 model using Roboflow achieving 90%+ object recognition accuracy</span>
+                </li>
+                <li className="flex gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                  <span className="text-muted-foreground">Achieved 100% line following accuracy through optimized sensor processing algorithms</span>
                 </li>
                 <li className="flex gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0 mt-2"></div>
@@ -95,7 +100,7 @@ const AutonomousPetRescuingRobot = () => {
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Technologies Used</h2>
               <div className="flex flex-wrap gap-2 mb-8">
-                {["C++", "Python", "Computer Vision", "PCB Design", "FreeRTOS", "Raspberry Pi", "ESP-32"].map((tech) => (
+                {["C++", "Python", "YOLOv11", "Roboflow", "Computer Vision", "PCB Design", "FreeRTOS", "Raspberry Pi", "ESP-32"].map((tech) => (
                   <span
                     key={tech}
                     className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded"

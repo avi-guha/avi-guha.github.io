@@ -5,8 +5,8 @@ const Projects = () => {
   const projects = [
     {
       title: "Autonomous Pet Rescuing Robot",
-      description: "Architected end-to-end autonomous mobile robot with custom PCB hardware, real-time computer vision (90%+ accuracy), and dual-core FreeRTOS achieving <1ms control loops. Full-stack development from circuit design to ML model training.",
-      technologies: ["C++", "Python", "Computer Vision", "PCB Design", "FreeRTOS", "Raspberry Pi", "ESP-32"],
+      description: "Architected end-to-end autonomous mobile robot with custom PCB hardware, YOLOv11-powered computer vision (90%+ accuracy), and dual-core FreeRTOS achieving <1ms control loops. Full-stack development from circuit design to ML model training with Roboflow.",
+      technologies: ["C++", "Python", "YOLOv11", "Roboflow", "PCB Design", "FreeRTOS", "Raspberry Pi", "ESP-32"],
       githubUrl: "https://github.com/KazuoCalvin/ENPH-253-ROBO-SUMMER-",
       category: "Robotics & AI",
       slug: "autonomous-pet-rescuing-robot"
