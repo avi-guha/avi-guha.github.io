@@ -77,7 +77,7 @@ const Projects = () => {
     },
     {
       title: "Thunderbots Motor Driver",
-      description: "Achieved 90% footprint reduction through 8-layer HDI PCB design while adding CAN interface. Implemented sensorless FOC firmware delivering 95% motor efficiency with <30-second hot-swap capability for competition reliability.",
+      description: "Achieved 90% footprint reduction through 4-layer HDI PCB design while adding CAN interface. Implemented sensorless FOC firmware delivering 95% motor efficiency with <30-second hot-swap capability for competition reliability.",
       technologies: ["PCB Design", "Embedded C", "FOC", "CAN Protocol", "Altium"],
       githubUrl: "https://github.com/avi-guha",
       category: "Robotics",
