@@ -171,7 +171,7 @@ export default function ThreeBackground() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 -z-10 pointer-events-none opacity-60"
+      className="absolute inset-0 -z-10 pointer-events-none opacity-60"
     />
   );
 }

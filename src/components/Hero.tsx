@@ -10,7 +10,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center gradient-hero relative">
+    <section id="home" className="min-h-screen flex items-center justify-center gradient-hero relative overflow-hidden">
       <ThreeBackground />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-up">
