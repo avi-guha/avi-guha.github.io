@@ -80,6 +80,8 @@ export default function LoadingAnimation({ onComplete }: LoadingAnimationProps) 
     });
 
     // Orbital paths (torus for visual guide)
+    const orbitalRings: THREE.Mesh[] = [];
+    
     const createOrbital = (radius: number, rotation: [number, number, number]) => {
       const orbitalGeometry = new THREE.TorusGeometry(radius, 0.02, 8, 64);
       const orbitalMaterial = new THREE.MeshBasicMaterial({ 
@@ -96,47 +98,39 @@ export default function LoadingAnimation({ onComplete }: LoadingAnimationProps) 
     const orbital2 = createOrbital(4, [Math.PI / 2, Math.PI / 3, 0]);
     const orbital3 = createOrbital(5, [Math.PI / 2, -Math.PI / 4, Math.PI / 6]);
     
+    orbitalRings.push(orbital1, orbital2, orbital3);
     orbitalGroup.add(orbital1, orbital2, orbital3);
     scene.add(orbitalGroup);
 
-    // Create electrons with orbital plane info
+    // Create electrons with orbital reference
     const electrons: { 
       mesh: THREE.Mesh; 
-      orbit: number; 
+      orbital: THREE.Mesh;
       angle: number; 
       speed: number;
-      rotationX: number;
-      rotationY: number;
-      rotationZ: number;
     }[] = [];
     
     const createElectron = (
-      orbitRadius: number, 
-      speed: number,
-      rotationX: number,
-      rotationY: number,
-      rotationZ: number
+      orbitalMesh: THREE.Mesh,
+      speed: number
     ) => {
       const electron = new THREE.Mesh(electronGeometry, electronMaterial);
       electrons.push({
         mesh: electron,
-        orbit: orbitRadius,
+        orbital: orbitalMesh,
         angle: Math.random() * Math.PI * 2,
-        speed,
-        rotationX,
-        rotationY,
-        rotationZ
+        speed
       });
       scene.add(electron);
     };
 
-    // Match orbital rotations
-    createElectron(3, 0.02, Math.PI / 2, 0, 0);
-    createElectron(3, 0.02, Math.PI / 2, 0, 0);
-    createElectron(4, 0.015, Math.PI / 2, Math.PI / 3, 0);
-    createElectron(4, 0.015, Math.PI / 2, Math.PI / 3, 0);
-    createElectron(5, 0.01, Math.PI / 2, -Math.PI / 4, Math.PI / 6);
-    createElectron(5, 0.01, Math.PI / 2, -Math.PI / 4, Math.PI / 6);
+    // Create electrons on each orbital
+    createElectron(orbital1, 0.02);
+    createElectron(orbital1, 0.02);
+    createElectron(orbital2, 0.015);
+    createElectron(orbital2, 0.015);
+    createElectron(orbital3, 0.01);
+    createElectron(orbital3, 0.01);
 
     // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
@@ -214,24 +208,28 @@ export default function LoadingAnimation({ onComplete }: LoadingAnimationProps) 
       // Rotate orbitals
       orbitalGroup.rotation.y = time * 0.2;
 
-      // Animate electrons in orbit
+      // Animate electrons in orbit - follow exact ring path
       electrons.forEach((electron) => {
         electron.angle += electron.speed;
         
-        // Calculate position on circular orbit
-        const x = Math.cos(electron.angle) * electron.orbit;
-        const y = Math.sin(electron.angle) * electron.orbit;
-        const z = 0;
+        // Get the orbital ring's geometry to extract radius
+        const orbitalGeom = electron.orbital.geometry as THREE.TorusGeometry;
+        const radius = orbitalGeom.parameters.radius;
         
-        // Create rotation matrix to match orbital plane
-        const position = new THREE.Vector3(x, y, z);
+        // Calculate position on circle in local space
+        const localPos = new THREE.Vector3(
+          Math.cos(electron.angle) * radius,
+          Math.sin(electron.angle) * radius,
+          0
+        );
         
-        // Apply rotations in the same order as the orbital rings
-        position.applyAxisAngle(new THREE.Vector3(1, 0, 0), electron.rotationX);
-        position.applyAxisAngle(new THREE.Vector3(0, 1, 0), electron.rotationY);
-        position.applyAxisAngle(new THREE.Vector3(0, 0, 1), electron.rotationZ);
+        // Apply the orbital ring's rotation to get world position
+        localPos.applyEuler(electron.orbital.rotation);
         
-        electron.mesh.position.copy(position);
+        // Apply the orbital group's rotation
+        localPos.applyEuler(orbitalGroup.rotation);
+        
+        electron.mesh.position.copy(localPos);
       });
 
       // Rotate particle field
