@@ -99,26 +99,44 @@ export default function LoadingAnimation({ onComplete }: LoadingAnimationProps) 
     orbitalGroup.add(orbital1, orbital2, orbital3);
     scene.add(orbitalGroup);
 
-    // Create electrons
-    const electrons: { mesh: THREE.Mesh; orbit: number; angle: number; speed: number }[] = [];
+    // Create electrons with orbital plane info
+    const electrons: { 
+      mesh: THREE.Mesh; 
+      orbit: number; 
+      angle: number; 
+      speed: number;
+      rotationX: number;
+      rotationY: number;
+      rotationZ: number;
+    }[] = [];
     
-    const createElectron = (orbitRadius: number, speed: number) => {
+    const createElectron = (
+      orbitRadius: number, 
+      speed: number,
+      rotationX: number,
+      rotationY: number,
+      rotationZ: number
+    ) => {
       const electron = new THREE.Mesh(electronGeometry, electronMaterial);
       electrons.push({
         mesh: electron,
         orbit: orbitRadius,
         angle: Math.random() * Math.PI * 2,
-        speed
+        speed,
+        rotationX,
+        rotationY,
+        rotationZ
       });
       scene.add(electron);
     };
 
-    createElectron(3, 0.02);
-    createElectron(3, 0.02);
-    createElectron(4, 0.015);
-    createElectron(4, 0.015);
-    createElectron(5, 0.01);
-    createElectron(5, 0.01);
+    // Match orbital rotations
+    createElectron(3, 0.02, Math.PI / 2, 0, 0);
+    createElectron(3, 0.02, Math.PI / 2, 0, 0);
+    createElectron(4, 0.015, Math.PI / 2, Math.PI / 3, 0);
+    createElectron(4, 0.015, Math.PI / 2, Math.PI / 3, 0);
+    createElectron(5, 0.01, Math.PI / 2, -Math.PI / 4, Math.PI / 6);
+    createElectron(5, 0.01, Math.PI / 2, -Math.PI / 4, Math.PI / 6);
 
     // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
@@ -197,23 +215,23 @@ export default function LoadingAnimation({ onComplete }: LoadingAnimationProps) 
       orbitalGroup.rotation.y = time * 0.2;
 
       // Animate electrons in orbit
-      electrons.forEach((electron, index) => {
+      electrons.forEach((electron) => {
         electron.angle += electron.speed;
         
-        // Different orbital planes
-        if (index < 2) {
-          electron.mesh.position.x = Math.cos(electron.angle) * electron.orbit;
-          electron.mesh.position.y = Math.sin(electron.angle) * electron.orbit;
-          electron.mesh.position.z = 0;
-        } else if (index < 4) {
-          electron.mesh.position.x = Math.cos(electron.angle) * electron.orbit;
-          electron.mesh.position.y = Math.sin(electron.angle) * electron.orbit * 0.5;
-          electron.mesh.position.z = Math.sin(electron.angle) * electron.orbit * 0.5;
-        } else {
-          electron.mesh.position.x = Math.cos(electron.angle) * electron.orbit * 0.7;
-          electron.mesh.position.y = Math.sin(electron.angle) * electron.orbit * 0.3;
-          electron.mesh.position.z = Math.sin(electron.angle) * electron.orbit;
-        }
+        // Calculate position on circular orbit
+        const x = Math.cos(electron.angle) * electron.orbit;
+        const y = Math.sin(electron.angle) * electron.orbit;
+        const z = 0;
+        
+        // Create rotation matrix to match orbital plane
+        const position = new THREE.Vector3(x, y, z);
+        
+        // Apply rotations in the same order as the orbital rings
+        position.applyAxisAngle(new THREE.Vector3(1, 0, 0), electron.rotationX);
+        position.applyAxisAngle(new THREE.Vector3(0, 1, 0), electron.rotationY);
+        position.applyAxisAngle(new THREE.Vector3(0, 0, 1), electron.rotationZ);
+        
+        electron.mesh.position.copy(position);
       });
 
       // Rotate particle field
