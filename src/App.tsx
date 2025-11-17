@@ -18,6 +18,7 @@ import BreakBeamBoard from "./pages/projects/BreakBeamBoard";
 import RosClueDetective from "./pages/projects/RosClueDetective";
 import CANPrototype from "./pages/projects/CANPrototype";
 import ThunderbotsMotorDriver from "./pages/projects/ThunderbotsMotorDriver";
+import ToneLens from "./pages/projects/ToneLens";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ const App = () => {
               <Route path="/projects/ros-clue-detective" element={<RosClueDetective />} />
               <Route path="/projects/can-prototype" element={<CANPrototype />} />
               <Route path="/projects/thunderbots-motor-driver" element={<ThunderbotsMotorDriver />} />
+              <Route path="/projects/tonelens" element={<ToneLens />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

@@ -4,6 +4,14 @@ import { Link } from "react-router-dom";
 const Projects = () => {
   const projects = [
     {
+      title: "ToneLens",
+      description: "AI-powered communication assistant using Gemini AI to decode emotional tones in text messages. Analyzes conversation screenshots and provides real-time tone detection, helping users navigate digital communication with confidence.",
+      technologies: ["Gemini AI", "React", "TypeScript", "NLP", "Image Processing"],
+      githubUrl: "https://github.com/avi-guha/HACKCAMP-2025-V2",
+      category: "AI & Machine Learning",
+      slug: "tonelens"
+    },
+    {
       title: "Autonomous Pet Rescuing Robot",
       description: "Architected end-to-end autonomous mobile robot with custom PCB hardware, YOLOv11-powered computer vision (90%+ accuracy), and dual-core FreeRTOS achieving <1ms control loops. Full-stack development from circuit design to ML model training with Roboflow.",
       technologies: ["C++", "Python", "YOLOv11", "Roboflow", "PCB Design", "FreeRTOS", "Raspberry Pi", "ESP-32"],
