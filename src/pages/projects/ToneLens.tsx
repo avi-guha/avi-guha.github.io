@@ -49,6 +49,14 @@ const ToneLens = () => {
               </a>
             </div>
 
+            <div className="mb-8">
+              <img 
+                src="/projects/tonelens_logo.png" 
+                alt="ToneLens Logo"
+                className="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
+              />
+            </div>
+
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">
                 An AI-powered communication assistant that helps individuals decode the emotional tone 
@@ -96,6 +104,19 @@ const ToneLens = () => {
                 </li>
               </ul>
 
+              <div className="my-8 grid md:grid-cols-2 gap-4">
+                <img 
+                  src="/projects/tonelens_input.png" 
+                  alt="ToneLens text input interface"
+                  className="w-full rounded-lg shadow-lg"
+                />
+                <img 
+                  src="/projects/tonelens_analysis.png" 
+                  alt="ToneLens tone analysis results"
+                  className="w-full rounded-lg shadow-lg"
+                />
+              </div>
+
               <h2 className="text-2xl font-semibold mb-4 text-accent">Technical Implementation</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 The backend is powered by Gemini AI's natural language processing capabilities, which I 
@@ -117,6 +138,14 @@ const ToneLens = () => {
                 multi-turn conversations, analyzing each message independently while maintaining awareness 
                 of the conversational context.
               </p>
+
+              <div className="my-8">
+                <img 
+                  src="/projects/tonelens_conversation.png" 
+                  alt="ToneLens conversation breakdown"
+                  className="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
+                />
+              </div>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Impact & Learning</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
