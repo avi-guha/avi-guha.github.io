@@ -5,12 +5,67 @@ interface LoadingAnimationProps {
   onComplete: () => void;
 }
 
+// Check if WebGL is available
+const isWebGLAvailable = (): boolean => {
+  try {
+    const canvas = document.createElement('canvas');
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+    );
+  } catch (e) {
+    return false;
+  }
+};
+
+// Non-linear easing function for more natural progress
+const easeOutExpo = (t: number): number => {
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+};
+
+// Simulate realistic loading with random jumps
+const simulateProgress = (elapsed: number, duration: number): number => {
+  const baseProgress = elapsed / duration;
+  // Add some randomness to make it feel more natural
+  const wobble = Math.sin(elapsed * 0.01) * 0.02;
+  // Apply easing
+  const eased = easeOutExpo(Math.min(baseProgress, 1));
+  return Math.min(eased + wobble * (1 - eased), 1);
+};
+
 export default function LoadingAnimation({ onComplete }: LoadingAnimationProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
+  const [webglSupported] = useState(isWebGLAvailable);
 
+  // Fallback animation for non-WebGL browsers
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (webglSupported) return;
+
+    const duration = 2500;
+    const startTime = Date.now();
+
+    const animateFallback = () => {
+      const elapsed = Date.now() - startTime;
+      const currentProgress = simulateProgress(elapsed, duration);
+      setProgress(currentProgress);
+
+      if (currentProgress >= 1) {
+        setTimeout(() => {
+          onComplete();
+        }, 200);
+        return;
+      }
+
+      requestAnimationFrame(animateFallback);
+    };
+
+    animateFallback();
+  }, [onComplete, webglSupported]);
+
+  // WebGL animation
+  useEffect(() => {
+    if (!containerRef.current || !webglSupported) return;
 
     // Scene setup
     const scene = new THREE.Scene();
@@ -186,7 +241,7 @@ export default function LoadingAnimation({ onComplete }: LoadingAnimationProps) 
     // Animation loop
     const animate = () => {
       const elapsed = Date.now() - startTime;
-      const currentProgress = Math.min(elapsed / duration, 1);
+      const currentProgress = simulateProgress(elapsed, duration);
       setProgress(currentProgress);
 
       if (currentProgress >= 1) {
@@ -262,11 +317,11 @@ export default function LoadingAnimation({ onComplete }: LoadingAnimationProps) 
         containerRef.current.removeChild(renderer.domElement);
       }
     };
-  }, [onComplete]);
+  }, [onComplete, webglSupported]);
 
   return (
     <div className="fixed inset-0 z-50 bg-background flex flex-col items-center justify-center">
-      <div ref={containerRef} className="absolute inset-0" />
+      {webglSupported && <div ref={containerRef} className="absolute inset-0" />}
       
       <div className="relative z-10 flex flex-col items-center gap-8">
         <div className="text-center space-y-4">

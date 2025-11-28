@@ -1,11 +1,25 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
+
+// Check if WebGL is available
+const isWebGLAvailable = (): boolean => {
+  try {
+    const canvas = document.createElement('canvas');
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+    );
+  } catch (e) {
+    return false;
+  }
+};
 
 export default function ThreeBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [webglSupported] = useState(isWebGLAvailable);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || !webglSupported) return;
 
     // Scene setup
     const scene = new THREE.Scene();
@@ -166,7 +180,9 @@ export default function ThreeBackground() {
         containerRef.current.removeChild(renderer.domElement);
       }
     };
-  }, []);
+  }, [webglSupported]);
+
+  if (!webglSupported) return null;
 
   return (
     <div

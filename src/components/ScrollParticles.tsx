@@ -1,9 +1,23 @@
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
+// Check if WebGL is available
+const isWebGLAvailable = (): boolean => {
+  try {
+    const canvas = document.createElement('canvas');
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+    );
+  } catch (e) {
+    return false;
+  }
+};
+
 export default function ScrollParticles() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [webglSupported] = useState(isWebGLAvailable);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +33,7 @@ export default function ScrollParticles() {
   }, []);
 
   useEffect(() => {
-    if (!containerRef.current || !isVisible) return;
+    if (!containerRef.current || !isVisible || !webglSupported) return;
 
     // Scene setup
     const scene = new THREE.Scene();
@@ -185,9 +199,9 @@ export default function ScrollParticles() {
         containerRef.current.removeChild(renderer.domElement);
       }
     };
-  }, [isVisible]);
+  }, [isVisible, webglSupported]);
 
-  if (!isVisible) return null;
+  if (!isVisible || !webglSupported) return null;
 
   return (
     <div
