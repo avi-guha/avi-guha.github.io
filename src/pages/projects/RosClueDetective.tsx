@@ -97,6 +97,44 @@ const RosClueDetective = () => {
                 human-level performance in navigation tasks while maintaining computational efficiency suitable for real-time robotics applications, 
                 showcasing proficiency in PyTorch, OpenCV, ROS, and autonomous systems design.
               </p>
+
+              <h2 className="text-2xl font-semibold mb-4 text-accent">Neural Network Architectures</h2>
+              
+              <div className="mb-8">
+                <h3 className="text-xl font-semibold mb-3 text-foreground">Multi-Modal Fusion Network (Image + LIDAR)</h3>
+                <div className="bg-white rounded-lg p-4 mb-4">
+                  <img 
+                    src="/projects/Self-Driving-Model.png" 
+                    alt="Multi-Modal Fusion Network Architecture" 
+                    className="w-full rounded-lg"
+                  />
+                </div>
+                <p className="text-muted-foreground mb-6">
+                  This network combines visual and LIDAR data for autonomous navigation. The <strong className="text-foreground">Image Branch</strong> processes 
+                  120×120×3 RGB images through 5 convolutional layers with ReLU activations, producing a 4096-dimensional feature vector. 
+                  The <strong className="text-foreground">LIDAR Branch</strong> processes 720-dimensional laser scan data through fully connected layers, 
+                  outputting 64 features. Both branches are concatenated (4160 features total) and passed through a classifier with dropout 
+                  regularization that outputs linear velocity (v) and angular velocity (ω) commands for robot control.
+                </p>
+              </div>
+
+              <div className="mb-8">
+                <h3 className="text-xl font-semibold mb-3 text-foreground">Keras Sequential CNN Classifier</h3>
+                <div className="bg-white rounded-lg p-4 mb-4">
+                  <img 
+                    src="/projects/Clue-Reader-Model.png" 
+                    alt="Keras Sequential CNN Architecture" 
+                    className="w-full rounded-lg"
+                  />
+                </div>
+                <p className="text-muted-foreground mb-6">
+                  A sequential convolutional neural network for traffic sign classification built with Keras. The architecture consists of 
+                  3 convolutional blocks, each containing Conv2D layers (3×3 kernels, 'same' padding, ReLU activation) with batch normalization 
+                  and 2×2 max pooling for spatial reduction. Filter sizes progress from 32 in Block 1 to 64 in Blocks 2 and 3. After flattening, 
+                  the network splits into two classification heads—each with a Dense layer (256 units, ReLU) and 0.5 dropout for regularization—leading 
+                  to softmax outputs for multi-class traffic sign classification.
+                </p>
+              </div>
             </div>
           </div>
         </section>
