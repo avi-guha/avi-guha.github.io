@@ -27,7 +27,7 @@ const Resume = () => {
               <span className="font-medium">Engineering Physics Student</span>
             </div>
             <div className="text-muted-foreground">
-              University of British Columbia • GPA: 83%
+              University of British Columbia • GPA: 80%
             </div>
             <div className="text-muted-foreground">
               Expected Graduation: May 2027
@@ -36,7 +36,7 @@ const Resume = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="gap-2">
-              <a href="/Avi_Guha_Resume.docx" download>
+              <a href="/Avi_Guha_Resume.pdf" download>
                 <Download size={20} />
                 Download Resume
               </a>

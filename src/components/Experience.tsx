@@ -3,10 +3,23 @@ import { Briefcase, Calendar, MapPin } from "lucide-react";
 const Experience = () => {
   const experiences = [
     {
+      title: "Undergraduate Silicon Quantum Photonics Researcher",
+      company: "Stewart Blusson Quantum Matter Institute",
+      location: "Vancouver, British Columbia",
+      period: "January 2026 - Present",
+      description: [
+        "Investigating the usage of nanowire single photon detectors on silicon for spin detection in photon-based quantum computers.",
+        "Engineered RF (~3GHz) PCBAs to interface between cryogenic (4 Kelvin) photon detectors and room temperature acquisition systems, ensuring impedance matching and high signal to noise ratio, resulting in high throughput and minimizing jitter.",
+        "Developed a variable low-noise current source for superconducting biasing applications, delivering up to 8mA with less than 5mA of RMS noise, resulting in stable superconductivity for cryogenic applications.",
+        "Designed a low-noise amplifier to operate at 4 Kelvin with 50 MHz–3 GHz bandwidth and less than 100 mW power dissipation, enabling reliable operation in cryogenic environments while minimizing flicker and Johnson–Nyquist noise.",
+        "Engineering a high-power RF amplifier, operating at 300 Kelvin, to maximise the signal to noise ratio from single photon detectors."
+      ]
+    },
+    {
       title: "Electrical Designer",
       company: "UBC Thunderbots",
       location: "Vancouver, British Columbia",
-      period: "September 2024 — Present",
+      period: "September 2024 - Present",
       description: [
         "Researched, designed, and implemented a flyback circuit to convert 24V to 240V, enabling energy storage in a 2mF (250V) capacitor for launching a golf ball at speeds exceeding 40 km/h.",
         "Led the design and development of a power distribution board, isolating low (<24V) and high (~240V) voltages, which enhanced the system's resistance to electrical faults and improved overall robot safety.",
@@ -18,7 +31,7 @@ const Experience = () => {
       title: "Undergraduate 2D Physics Researcher",
       company: "University of Calgary",
       location: "Calgary, Alberta",
-      period: "January 2025 — May 2025",
+      period: "January 2025 - May 2025",
       description: [
         "Developed and implemented a PID-controlled fluid cell to regulate humidity from (0%-95% RH) in an atomic force microscopy, significantly improving experimental precision by examining the effect of a meniscus on 2-D graphene and MXene materials.",
         "Designed and developed a full-cycle Java application using OpenCV, enabling researchers to visualize and analyze the progressive decay of monolayer flakes under repeated wear in an AFM environment, enhancing their understanding of material degradation."
@@ -28,7 +41,7 @@ const Experience = () => {
       title: "Materials and Processes Intern",
       company: "PFB - Plasti-Fab",
       location: "Calgary, Alberta",
-      period: "May 2024 — August 2024",
+      period: "May 2024 - August 2024",
       description: [
         "Streamlined supply chain management and inventory control across North America by optimizing tracking and distribution processes using advanced Microsoft Excel techniques and predictive analysis.",
         "Achieved a 50% increase in efficiency and accuracy in logistics operations, improving resource allocation and reducing lead times."

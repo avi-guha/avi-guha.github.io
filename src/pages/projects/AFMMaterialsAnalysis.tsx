@@ -56,12 +56,45 @@ const AFMMaterialsAnalysis = () => {
                 environmental control with advanced image processing for atomic force microscopy applications.
               </p>
 
+              <h2 className="text-2xl font-semibold mb-4 text-accent">My First Real Research Experience</h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Walking into a real research lab for the first time was intimidating. The atomic force microscope looked like 
+                something from a science fiction movie, and everyone around me seemed to speak a language of monolayers, van der 
+                Waals forces, and substrate interactions that I barely understood. But I'd been given a problem to solve: figure 
+                out how humidity affects the degradation of 2D materials. That clarity of purpose helped me focus.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                The research focused on graphene and MXenes, exotic materials just a few atoms thick with incredible properties. 
+                But these materials are also delicate, and understanding how they degrade in different conditions is crucial for 
+                any practical applications. My job was to build the tools that would let us study this degradation systematically.
+              </p>
+
               <h2 className="text-2xl font-semibold mb-6 text-accent">Part 1: PID-Controlled Humidity System</h2>
               
-              <h3 className="text-xl font-semibold mb-4 text-foreground">Hardware & Control System</h3>
+              <h3 className="text-xl font-semibold mb-4 text-foreground">The Problem: You Can't Measure What You Can't Control</h3>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                Designed and implemented a precision environmental control system for atomic force microscopy experiments, 
-                enabling real-time humidity regulation critical for studying meniscus effects on 2D materials.
+                The existing AFM setup had no way to control humidity during experiments. This was a huge limitation because humidity 
+                dramatically affects how water forms a meniscus between the AFM tip and the sample, which in turn affects 
+                the wear patterns we were trying to study. We needed precise control from near-zero to 95% relative humidity, 
+                with stability good enough to run experiments that lasted hours.
+              </p>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
+                I designed a custom fluid cell, essentially a sealed chamber around the AFM tip and sample with controlled gas 
+                flow. Dry nitrogen would lower humidity; bubbling nitrogen through water would raise it. The trick was maintaining 
+                stable conditions without disturbing the incredibly sensitive AFM measurements.
+              </p>
+
+              <h3 className="text-xl font-semibold mb-4 text-foreground">Building the Control System</h3>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
+                I implemented a PID controller to regulate the gas flow based on real-time humidity sensor readings. The tuning 
+                process was fascinating. Too aggressive and the system would oscillate wildly; too conservative and it would 
+                take forever to reach the setpoint. I learned to characterize the system's response, estimate time constants, 
+                and dial in parameters that achieved ±2% accuracy with good settling time.
+              </p>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
+                One unexpected challenge was sensor placement. The humidity sensor needed to measure conditions right at the 
+                sample surface, but it couldn't interfere with the AFM tip or create air currents that would disturb measurements. 
+                After several iterations, I found a configuration that gave accurate readings without compromising experimental quality.
               </p>
 
               <ul className="space-y-3 mb-8">
@@ -85,10 +118,35 @@ const AFMMaterialsAnalysis = () => {
 
               <h2 className="text-2xl font-semibold mb-6 text-accent mt-12">Part 2: Java Image Analysis Application</h2>
               
-              <h3 className="text-xl font-semibold mb-4 text-foreground">Computational Analysis Pipeline</h3>
+              <h3 className="text-xl font-semibold mb-4 text-foreground">From Images to Insights</h3>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                Developed full-cycle Java application leveraging OpenCV for automated visualization and quantitative 
-                analysis of monolayer material degradation, transforming raw AFM data into actionable research insights.
+                Once we could control the experimental conditions, we started generating a lot of AFM images. Each scan showed 
+                the topography of our 2D material samples at atomic resolution, and we needed to track how these materials changed 
+                over time and under different conditions. The existing workflow was painfully manual. Researchers would eyeball 
+                images, draw boundaries around flakes, and estimate degradation by hand. This was slow, subjective, and didn't scale.
+              </p>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
+                I proposed building software to automate this process, and the lab enthusiastically agreed. What followed was 
+                an intensive deep-dive into image processing, where I taught myself OpenCV and applied computer vision 
+                techniques to a domain I'd never encountered before.
+              </p>
+
+              <h3 className="text-xl font-semibold mb-4 text-foreground">The Technical Challenges</h3>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
+                AFM images aren't like photographs. They represent height data, often with nanometer-scale variations and various 
+                artifacts from the scanning process. I had to develop preprocessing pipelines that would normalize images, remove 
+                scan-line artifacts, and enhance the edges of material flakes without introducing false features.
+              </p>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
+                Edge detection was particularly tricky. The boundary between a monolayer flake and the substrate might be just 
+                a few angstroms high, essentially invisible in a standard image. I experimented with gradient-based methods, 
+                adaptive thresholding, and eventually settled on a multi-scale approach that could reliably identify flake 
+                boundaries across different materials and imaging conditions.
+              </p>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
+                The temporal tracking component (following how flakes changed across repeated scans) required solving a registration 
+                problem. Samples might shift slightly between scans, so I implemented feature matching algorithms to align images 
+                before computing degradation metrics.
               </p>
 
               <ul className="space-y-3 mb-8">
@@ -118,9 +176,24 @@ const AFMMaterialsAnalysis = () => {
                 facilitating rapid iteration and deeper insights into material behavior.
               </p>
 
+              <h2 className="text-2xl font-semibold mb-4 text-accent">What Research Taught Me</h2>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Research is messier than coursework. There's no answer key, and sometimes you spend weeks on an approach 
+                that turns out to be a dead end. But I also learned that engineering skills can unlock new scientific 
+                possibilities. The researchers I worked with were brilliant at understanding physics, but they needed 
+                someone who could build the tools to test their hypotheses. Being that bridge between engineering and 
+                science was incredibly rewarding.
+              </p>
+              <p className="text-muted-foreground mb-8 leading-relaxed">
+                I also learned to communicate across disciplines. Explaining why my PID controller needed certain tuning 
+                parameters, or why my image processing algorithm made certain assumptions. These conversations required 
+                translating between engineering and physics vocabularies. That skill has been valuable in every collaborative 
+                project since.
+              </p>
+
               <h2 className="text-2xl font-semibold mb-4 text-accent">Technologies Used</h2>
               <div className="flex flex-wrap gap-2 mb-8">
-                {["Java", "OpenCV", "PID Control", "Materials Science"].map((tech) => (
+                {["Java", "OpenCV", "PID Control", "Materials Science", "AFM", "Image Processing", "Data Analysis"].map((tech) => (
                   <span
                     key={tech}
                     className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded"

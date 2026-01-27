@@ -18,10 +18,10 @@ const About = () => {
               </p>
               
               <p>
-                Currently, I'm an Electrical Designer at UBC Thunderbots, where I design 
-                PCBs and implement advanced control systems for autonomous soccer robots 
-                competing internationally. My experience includes power electronics, embedded 
-                systems, computer vision, and materials research.
+                Currently, I'm researching silicon quantum photonics at the Stewart Blusson 
+                Quantum Matter Institute, working on nanowire single photon detectors for 
+                quantum computing applications. I'm also an Electrical Designer at UBC Thunderbots, 
+                designing PCBs and control systems for autonomous soccer robots competing internationally.
               </p>
               
               <p>

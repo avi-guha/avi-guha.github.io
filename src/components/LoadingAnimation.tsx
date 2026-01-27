@@ -82,7 +82,7 @@ export default function LoadingAnimation({ onComplete }: LoadingAnimationProps) 
       0.1,
       1000
     );
-    camera.position.z = 18;
+    camera.position.z = 22;
     camera.position.y = 2;
 
     const renderer = new THREE.WebGLRenderer({ 
@@ -372,7 +372,7 @@ export default function LoadingAnimation({ onComplete }: LoadingAnimationProps) 
       // Background particles (static)
 
       // Camera zoom as loading progresses
-      camera.position.z = 18 - Math.min(currentProgress, 1) * 3;
+      camera.position.z = 22 - Math.min(currentProgress, 1) * 3;
       camera.lookAt(0, 0, 0);
 
       renderer.render(scene, camera);

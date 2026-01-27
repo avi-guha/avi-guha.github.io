@@ -21,7 +21,7 @@ const Projects = () => {
     },
     {
       title: "Servo Speed Motor Control",
-      description: "Engineered hardware-only PID control system using discrete logic components and optoelectronics. Achieved stable motor speed regulation without microcontrollers—demonstrating mastery of analog circuit design and control theory fundamentals.",
+      description: "Engineered hardware-only PID control system using discrete logic components and optoelectronics. Achieved stable motor speed regulation without microcontrollers, demonstrating mastery of analog circuit design and control theory fundamentals.",
       technologies: ["Digital Logic", "Operational Amplifiers", "DAC", "Circuit Design"],
       githubUrl: "https://github.com/avi-guha",
       category: "Electronics",
@@ -69,7 +69,7 @@ const Projects = () => {
     },
     {
       title: "ROS Clue Detective",
-      description: "Built autonomous navigation system with custom CNNs achieving 95%+ sign recognition accuracy and zero-collision imitation learning. Self-taught reinforcement learning and implemented custom reward functions—all from scratch in ROS Gazebo.",
+      description: "Built autonomous navigation system with custom CNNs achieving 95%+ sign recognition accuracy and zero-collision imitation learning. Self-taught reinforcement learning and implemented custom reward functions, all from scratch in ROS Gazebo.",
       technologies: ["Python", "ROS", "Machine Learning", "Computer Vision", "TensorFlow"],
       githubUrl: "https://github.com/avi-guha/ENPH-353-COMPETITION",
       category: "Machine Learning",
@@ -77,7 +77,7 @@ const Projects = () => {
     },
     {
       title: "CAN Prototype Board",
-      description: "Led SPI-to-CAN migration improving communication reliability 10x. Mastered differential impedance matching, signal integrity analysis, and high-speed PCB design—achieving professional-grade 120Ω ±5% impedance control.",
+      description: "Led SPI-to-CAN migration improving communication reliability 10x. Mastered differential impedance matching, signal integrity analysis, and high-speed PCB design, achieving professional-grade 120Ω ±5% impedance control.",
       technologies: ["CAN Protocol", "PCB Design", "Differential Signaling", "Altium"],
       githubUrl: "https://github.com/avi-guha/CanFirmwareTesting",
       category: "Hardware Design",

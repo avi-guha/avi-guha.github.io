@@ -66,7 +66,7 @@ const ToneLens = () => {
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">The Story</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                We've all been there—staring at a text message, wondering if someone's being sarcastic, 
+                We've all been there, staring at a text message, wondering if someone's being sarcastic, 
                 angry, or just joking around. For some people, especially those with social anxiety or 
                 neurodivergent individuals, this uncertainty can make digital communication incredibly 
                 stressful. I wanted to build something that could take that guesswork out of the equation.
@@ -75,7 +75,7 @@ const ToneLens = () => {
               <p className="text-muted-foreground leading-relaxed mb-6">
                 ToneLens was born during HackCamp 2025, where I focused on creating a tool that goes beyond 
                 simple sentiment analysis. Using Google's Gemini AI, the application doesn't just tell you 
-                if a message is positive or negative—it breaks down the nuanced tones like sarcasm, weariness, 
+                if a message is positive or negative. It breaks down the nuanced tones like sarcasm, weariness, 
                 casualness, and even passive-aggressiveness. It's like having a friend who's really good at 
                 reading between the lines, always there to help you understand what someone really means.
               </p>
@@ -128,7 +128,7 @@ const ToneLens = () => {
               <p className="text-muted-foreground leading-relaxed mb-6">
                 I built a custom parsing system that structures Gemini's responses into quantifiable tone 
                 metrics, displaying them as percentage-based confidence scores. The frontend visualizes these 
-                results with gradient progress bars that make the tone immediately understandable at a glance—
+                results with gradient progress bars that make the tone immediately understandable at a glance.
                 no need to interpret raw data or complicated reports.
               </p>
 
@@ -150,7 +150,7 @@ const ToneLens = () => {
               <h2 className="text-2xl font-semibold mb-4 text-accent">Impact & Learning</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Building ToneLens taught me a lot about the intersection of AI and accessibility. It's not 
-                just about throwing a language model at a problem—it's about understanding user needs deeply 
+                just about throwing a language model at a problem. It's about understanding user needs deeply 
                 enough to design an interface that makes AI insights actually useful and digestible.
               </p>
 

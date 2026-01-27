@@ -60,7 +60,7 @@ const Contact = () => {
         <div className="text-center mb-16">
           <h2 className="mb-4">Get In Touch</h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Interested in collaborating or discussing engineering physics projects? I'd love to hear from you.
+            Interested in collaborating or discussing engineering projects? I'd love to hear from you!
           </p>
           <div className="w-20 h-1 bg-accent mx-auto rounded-full"></div>
         </div>
@@ -69,7 +69,7 @@ const Contact = () => {
           <div className="animate-slide-in">
             <h3 className="text-2xl font-semibold mb-6">Let's Connect</h3>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              Whether you're looking to collaborate on a project, discuss research opportunities, 
+              Whether you're looking to collaborate on a project, discuss research or career opportunities, 
               or just want to chat about the fascinating intersection of physics and engineering, 
               I'm always open to new connections and conversations.
             </p>

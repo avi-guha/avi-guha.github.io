@@ -59,11 +59,75 @@ const RosClueDetective = () => {
 
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                I dove headfirst into machine learning with this project, teaching myself everything from scratch—no pre-trained models allowed. 
+                I dove headfirst into machine learning with this project, teaching myself everything from scratch. No pre-trained models allowed. 
                 The challenge was to build a robot in ROS Gazebo that could navigate city streets while reading traffic signs. I designed my 
                 own CNN architecture, collected and augmented training data, and implemented an imitation learning system that learned to drive 
                 by watching demonstrations. After weeks of training and debugging, I hit 95%+ sign recognition accuracy and achieved zero collisions. 
                 This project sparked my fascination with how robots can learn to perceive and interact with the world.
+              </p>
+
+              <h2 className="text-2xl font-semibold mb-4 text-accent">The Competition That Changed Everything</h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                The ENPH 353 competition dropped us into unfamiliar territory: build an autonomous robot that could navigate a simulated city, 
+                read license plates on parked cars, and identify locations, all without human intervention. The catch? No pre-trained models, 
+                no transfer learning, no shortcuts. If we wanted machine learning capabilities, we had to build them from the ground up. I had 
+                no prior ML experience, which made this both terrifying and exciting.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                My partner and I decided to split responsibilities: I would handle the perception and machine learning components while focusing 
+                on ensuring our robot could see and understand its environment. The scope was massive. I needed to build systems for lane following, 
+                sign recognition, and character reading, all working together in real-time on a simulated robot with realistic physics.
+              </p>
+
+              <h2 className="text-2xl font-semibold mb-4 text-accent">Building Neural Networks From Scratch</h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                My first neural network was comically bad. I had vague notions about layers and activations from YouTube videos, but turning 
+                that into working code was another matter entirely. My initial traffic sign classifier was basically random and would confidently 
+                declare any image to be a stop sign. But failure is a great teacher, and I systematically worked through what I didn't understand.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                I spent nights reading papers about convolutional neural networks, understanding why certain architectures work and others don't. 
+                I learned about the importance of data, that a model is only as good as what you train it on. I built a comprehensive data 
+                augmentation pipeline that would rotate, scale, shift, and color-jitter our limited training images, effectively expanding our 
+                dataset by 10x and making the model robust to variations it would encounter in the simulation.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                The breakthrough came when I finally understood backpropagation intuitively. Not just as a formula, but as the way a network 
+                learns from its mistakes. Once that clicked, I could debug model behavior in a principled way, identifying whether problems 
+                were in the architecture, the data, or the training process.
+              </p>
+
+              <h2 className="text-2xl font-semibold mb-4 text-accent">Teaching a Robot to Drive</h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                The navigation component required a fundamentally different approach. Instead of classification ("is this a stop sign?"), I
+                needed regression: "what steering angle and speed should the robot use right now?" This is where imitation learning came in.
+                The idea is simple: demonstrate good driving behavior, record what you see and what you do, then train a network to mimic 
+                that behavior.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                I spent hours manually driving the robot through the simulation, recording camera images along with my control inputs. But 
+                imitation learning has a nasty problem: the model only sees states from good driving. If it makes a small mistake and drifts 
+                toward the edge of the road, it's in a state it's never seen before and doesn't know how to recover. My first driving model 
+                would go straight beautifully but crash immediately if anything went slightly wrong.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                The solution was data augmentation specifically for driving. I would take a straight-ahead image and artificially shift it 
+                to simulate being off-center, then label it with a corrective steering angle. This taught the model not just how to drive 
+                when everything is perfect, but how to recover when things go wrong. After implementing this, the zero-collision achievement 
+                became possible.
+              </p>
+
+              <h2 className="text-2xl font-semibold mb-4 text-accent">The Multi-Modal Architecture</h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Our robot had both a camera and a LIDAR sensor, and I wanted to use both. The challenge was fusing these fundamentally 
+                different data types. Images are 2D pixel grids while LIDAR gives sparse distance measurements. I designed a multi-modal 
+                fusion network where each modality has its own processing branch before being concatenated and passed through shared layers.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                The image branch uses convolutional layers to extract visual features: edges, textures, lane markings. The LIDAR branch uses 
+                fully connected layers to process the 720-dimensional scan data into a compact representation of nearby obstacles. Combining 
+                them gave the robot better situational awareness than either alone. The camera understood the road layout while LIDAR provided 
+                precise distance information for obstacle avoidance.
               </p>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Key Achievements</h2>
@@ -89,14 +153,6 @@ const RosClueDetective = () => {
                   <span className="text-muted-foreground">Integrated real-time perception, planning, and control modules within ROS framework for seamless operation</span>
                 </li>
               </ul>
-
-              <h2 className="text-2xl font-semibold mb-4 text-accent">Technical Innovation</h2>
-              <p className="text-muted-foreground mb-6">
-                Self-directed the implementation of end-to-end imitation learning and reinforcement learning algorithms, mastering 
-                state-of-the-art ML techniques through independent research and experimentation. The system successfully demonstrated 
-                human-level performance in navigation tasks while maintaining computational efficiency suitable for real-time robotics applications, 
-                showcasing proficiency in PyTorch, OpenCV, ROS, and autonomous systems design.
-              </p>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Neural Network Architectures</h2>
               
@@ -131,9 +187,34 @@ const RosClueDetective = () => {
                   A sequential convolutional neural network for traffic sign classification built with Keras. The architecture consists of 
                   3 convolutional blocks, each containing Conv2D layers (3×3 kernels, 'same' padding, ReLU activation) with batch normalization 
                   and 2×2 max pooling for spatial reduction. Filter sizes progress from 32 in Block 1 to 64 in Blocks 2 and 3. After flattening, 
-                  the network splits into two classification heads—each with a Dense layer (256 units, ReLU) and 0.5 dropout for regularization—leading 
+                  the network splits into two classification heads, each with a Dense layer (256 units, ReLU) and 0.5 dropout for regularization, leading 
                   to softmax outputs for multi-class traffic sign classification.
                 </p>
+              </div>
+
+              <h2 className="text-2xl font-semibold mb-4 text-accent">The Competition and Beyond</h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Competition day was intense. Watching our robot navigate autonomously, read license plates, and identify clues, all using
+                systems I'd built from scratch, was surreal. Every correct detection felt like a validation of weeks of work. And when it
+                completed a run with zero collisions, I knew all those late nights debugging loss functions had been worth it.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                But more than the competition results, this project gave me something valuable: an intuition for machine learning that I 
+                couldn't have gotten from courses or tutorials alone. I understand, at a visceral level, why models fail and how to fix them. 
+                I know what it feels like to watch a loss curve plateau and figure out how to break through. That experience has been 
+                invaluable in every ML project I've worked on since.
+              </p>
+
+              <h2 className="text-2xl font-semibold mb-4 text-accent">Technologies Used</h2>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {["Python", "ROS", "TensorFlow/Keras", "Computer Vision", "OpenCV", "Imitation Learning", "CNN Architecture", "Data Augmentation"].map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
