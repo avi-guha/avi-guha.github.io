@@ -150,15 +150,9 @@ const ThunderbotsMotorDriver = () => {
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Competition Validation</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                The real test came at competition. During one particularly intense match, a motor driver failed, something that would have 
-                been catastrophic with the old system. Instead, our technician popped out the bad board, snapped in a spare, and had the 
-                robot back on the field before the timeout ended. That moment made all the design effort worthwhile.
+              Hopefully I'll get to see these guys working in real-time at robo-cup in Korea January 2026!
               </p>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Over the season, the new drivers ran flawlessly. The FOC implementation meant our robots accelerated faster and used less 
-                battery than before. The CAN telemetry let us monitor motor temperatures and current draw in real-time, catching potential 
-                problems before they became failures. And the compact size freed up space for other improvements to the robot.
-              </p>
+              
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">The Learning Journey</h2>
               <p className="text-muted-foreground mb-6">

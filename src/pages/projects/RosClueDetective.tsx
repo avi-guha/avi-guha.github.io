@@ -74,9 +74,9 @@ const RosClueDetective = () => {
                 no prior ML experience, which made this both terrifying and exciting.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                My partner and I decided to split responsibilities: I would handle the perception and machine learning components while focusing 
-                on ensuring our robot could see and understand its environment. The scope was massive. I needed to build systems for lane following, 
-                sign recognition, and character reading, all working together in real-time on a simulated robot with realistic physics.
+                My partner and I decided to tackle the problem in two main parts: traffic sign recognition and autonomous navigation. For the sign recognition, my partner
+                focused on building a convolutional neural network (CNN) from scratch using TensorFlow/Keras. I took on the navigation system, implementing
+                an imitation learning approach where the robot would learn to drive by mimicking expert (aka me) demonstrations.
               </p>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Building Neural Networks From Scratch</h2>
@@ -92,9 +92,9 @@ const RosClueDetective = () => {
                 dataset by 10x and making the model robust to variations it would encounter in the simulation.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                The breakthrough came when I finally understood backpropagation intuitively. Not just as a formula, but as the way a network 
-                learns from its mistakes. Once that clicked, I could debug model behavior in a principled way, identifying whether problems 
-                were in the architecture, the data, or the training process.
+                The major breakthrough came through experimentation. I designed a custom CNN architecture with multiple convolutional and pooling layers, batch normalization,
+                and dropout for regularization. After countless training runs, tweaking hyperparameters, and debugging code, I finally achieved over 95% accuracy
+                on the validation set. Seeing the model correctly identify stop signs, speed limits, and other traffic signs in the simulation was incredibly rewarding.
               </p>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Teaching a Robot to Drive</h2>

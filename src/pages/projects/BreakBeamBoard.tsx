@@ -106,18 +106,6 @@ const BreakBeamBoard = () => {
                 sub-millisecond response times while maintaining the fail-safe property.
               </p>
 
-              <h2 className="text-2xl font-semibold mb-4 text-accent">Testing and Validation</h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                I built a test rig that could simulate various debris conditions: puffing powder across the sensors, shaking the board, 
-                introducing single-point obstructions. Then I'd roll actual golf balls through and measure the detection rate. Watching 
-                the system correctly reject debris while reliably catching every ball was immensely satisfying.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                The software team was skeptical at first. They'd been burned by sensor promises before. But when they integrated the 
-                new boards and saw the false positive rate drop to near zero, they became believers. The filtering code they'd spent 
-                months developing became unnecessary because the hardware was doing its job.
-              </p>
-
               <h2 className="text-2xl font-semibold mb-4 text-accent">Key Achievements</h2>
               <ul className="space-y-3 mb-8">
                 <li className="flex gap-3">

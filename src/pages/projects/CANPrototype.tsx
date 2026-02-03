@@ -106,15 +106,10 @@ const CANPrototype = () => {
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">From Theory to Working Hardware</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                My first CAN prototype was... educational. The impedance was way off because I hadn't accounted for the soldermask 
-                affecting the dielectric properties. The termination resistors were in the wrong place. And I'd made a rookie mistake 
-                with the transceiver power supply that introduced common-mode noise. But each failure taught me something, and each 
-                revision got better.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                By the third revision, I had achieved professional-grade performance. The eye diagrams looked clean, the impedance 
-                measured within spec, and most importantly, the communication was rock solid. Where SPI had been dropping 10-20% of 
-                packets under load, CAN achieved essentially zero packet loss, even when I deliberately tried to inject noise.
+                Designing the actual PCB was a meticulous process. I had to consider trace widths, spacing, layer stack-ups, and
+                ground plane configurations to achieve the desired impedance. I followed IPC-2221 standards and consulted 
+                application notes from CAN transceiver manufacturers. Each design iteration involved careful review and analysis
+                to ensure signal integrity.
               </p>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">The Debugging Toolkit</h2>

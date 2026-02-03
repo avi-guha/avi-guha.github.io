@@ -67,17 +67,17 @@ const AutonomousPetRescuingRobot = () => {
                 into one working system.
               </p>
 
-              <h2 className="text-2xl font-semibold mb-4 text-accent">The Beginning: Where It All Started</h2>
+              <h2 className="text-2xl font-semibold mb-4 text-accent">Introduction to the Project</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 When I first heard about this project (building an autonomous robot that could navigate a course, detect "stranded pets," and
-                rescue them), I knew it was exactly the kind of challenge I wanted. But honestly, I had no idea how deep the rabbit hole would go.
-                I'd never designed a custom PCB before, never trained a machine learning model, and my real-time operating system experience was 
-                basically zero. What I had was curiosity and a willingness to fail until I figured it out.
+                rescue them), I knew it was exactly the kind of challenge I wanted. For reference, this project was part of a university competition 
+                in which 16 teams competed to build the most effective pet-rescuing robot. 
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                The first few weeks were humbling. I spent entire nights reading datasheets for motor drivers, watching YouTube tutorials on 
-                PCB design, and trying to understand why my first H-bridge prototype kept releasing the magic smoke. But each failure taught me 
-                something, and slowly the pieces started coming together.
+                With my team of three other Engineering Physics students (shoutout to Jack Bradley, Ryan Mahinpey, and Kazu Nakane), we set out to 
+                design a robot from the ground up. We had all had some experience with engineering through design team work so we decided to throw 
+                ourselves into the deep end and try something completely different. We decided to stray from the typical lidar-sensor approach to 
+                instead focus on a computer vision-based solution. 
               </p>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Project Images</h2>
@@ -89,14 +89,16 @@ const AutonomousPetRescuingRobot = () => {
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">The Hardware Journey: From Breadboard to Custom PCBs</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                I started prototyping on breadboards, which worked fine until the motors drew enough current to melt the jumper wires. That's 
-                when I realized we needed real PCBs. I taught myself Altium Designer over a weekend, made about a dozen rookie mistakes on my 
-                first board, and eventually produced an H-Bridge that could handle the current without catching fire.
+                We started prototyping our circuits with breadboards, testing motor drivers and sensor arrays. But it quickly became clear that for reliability 
+                and compactness, we needed custom PCBs. Designing our first H-Bridge motor driver PCB was a steep learning curve. I had to learn 
+                about trace widths, thermal management, and proper grounding techniques. After several iterations in KiCad, we finally had a board 
+                that could handle the current demands of our motors without overheating.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 The motherboard was even more challenging. I had to route power and signals for an ESP-32, multiple motor drivers, line sensors, 
-                and a Raspberry Pi camera interface, all while keeping the board small enough to fit in our chassis. I learned about ground planes, 
-                decoupling capacitors, and why you should never run high-current traces next to sensitive analog signals the hard way.
+                and a Raspberry Pi camera interface, all while keeping the board small enough to fit in our chassis. I learned more about multi-layer 
+                PCB design and EMI mitigation than I ever thought I would. When the first batch of PCBs arrived and everything powered up on the 
+                first try, it was an incredible feeling of accomplishment.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Implementing PID motor control was another adventure. I spent a week tuning the constants, watching the robot oscillate wildly 
@@ -108,23 +110,26 @@ const AutonomousPetRescuingRobot = () => {
               <p className="text-muted-foreground leading-relaxed mb-6">
                 The computer vision component pushed me into completely unfamiliar territory. I'd heard of YOLO (You Only Look Once) but had 
                 never actually trained a model. I started by collecting hundreds of photos of our target objects, meticulously labeling them 
-                in Roboflow, and learning about data augmentation to expand our limited dataset.
+                in Roboflow, and learning about data augmentation to expand our limited dataset. We did everything from taking pictures in 
+                near pitch darkness to capturing objects at weird angles to make the model robust.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 My first trained model was terrible. It detected "pets" everywhere, including in shadows, on walls, and occasionally in empty space. 
                 But I kept iterating: adjusting confidence thresholds, adding more training data, experimenting with different YOLO architectures. 
-                When we finally broke 90% accuracy, I felt like I'd unlocked a superpower. The robot could actually see and understand its environment.
+                When we finally broke 90% accuracy, our team decided that the model was competition-ready. The robot was capable of differentiating 
+                between actual "pets" and random objects on the course with impressive reliability (like it was a sentient being).
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Getting the Raspberry Pi to run inference fast enough was another challenge. I optimized the model for edge deployment, 
                 implemented threading to separate capture from processing, and established a reliable UART protocol to send detection results 
-                to the ESP-32 at 115200 baud with zero packet loss.
+                to the ESP-32 at 115200 baud with zero packet loss. This was all done so that the ESP-32 could handle real-time motor control 
+                without being bogged down by heavy image processing.
               </p>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">The Firmware Challenge: Real-Time Everything</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Making everything work together in real-time was perhaps the hardest part. The robot needed to simultaneously follow lines, 
-                watch for obstacles, process camera feeds, and respond to motor commands, all without missing a beat. Enter FreeRTOS.
+                watch for obstacles, process camera feeds, and respond to motor commands, all without missing a beat. Enter real time operating systems.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 I spent weeks learning about task priorities, semaphores, and message queues. Using the ESP-32's dual cores, I architected a 
@@ -166,8 +171,8 @@ const AutonomousPetRescuingRobot = () => {
               <p className="text-muted-foreground leading-relaxed mb-6">
                 This project fundamentally changed how I see engineering. It taught me that building something complex isn't about being 
                 brilliant. It's about being persistent, breaking problems into smaller pieces, and not being afraid to learn new things. 
-                I went from never having designed a PCB to shipping custom hardware, from never training an ML model to achieving competition-ready 
-                accuracy. That transformation is what I'm most proud of.
+                The joy of seeing a robot you built from scratch come to life is indescribable. This experience has fueled my passion for robotics 
+                and AI, and I can't wait to tackle my next big challenge.
               </p>
 
               <h2 className="text-2xl font-semibold mb-4 text-accent">Technologies Used</h2>
