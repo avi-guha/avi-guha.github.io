@@ -10,10 +10,7 @@ export function useFadeInOnScroll<T extends HTMLElement = HTMLDivElement>(thresh
 
         const observer = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.unobserve(element);
-                }
+                setIsVisible(entry.isIntersecting);
             },
             { threshold }
         );

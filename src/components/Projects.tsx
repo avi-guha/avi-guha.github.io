@@ -9,7 +9,7 @@ const projects = [
     description: "AI-powered communication assistant using Gemini AI to decode emotional tones in text messages. Analyzes conversation screenshots and provides real-time tone detection, helping users navigate digital communication with confidence.",
     technologies: ["Gemini AI", "React", "TypeScript", "NLP", "Image Processing"],
     githubUrl: "https://github.com/avi-guha/HACKCAMP-2025-V2",
-    category: "AI & Machine Learning",
+    categories: ["AI & Machine Learning"],
     slug: "tonelens"
   },
   {
@@ -17,15 +17,14 @@ const projects = [
     description: "Architected end-to-end autonomous mobile robot with custom PCB hardware, YOLOv11-powered computer vision (90%+ accuracy), and dual-core FreeRTOS achieving <1ms control loops. Full-stack development from circuit design to ML model training with Roboflow.",
     technologies: ["C++", "Python", "YOLOv11", "Roboflow", "PCB Design", "FreeRTOS", "Raspberry Pi", "ESP-32"],
     githubUrl: "https://github.com/avi-guha/ROBOT",
-    category: "Robotics & AI",
+    categories: ["Embedded Systems", "AI & Machine Learning", "Robotics", "Mechatronics", "Hardware Design"],
     slug: "autonomous-pet-rescuing-robot"
   },
   {
     title: "Servo Speed Motor Control",
     description: "Engineered hardware-only PID control system using discrete logic components and optoelectronics. Achieved stable motor speed regulation without microcontrollers, demonstrating mastery of analog circuit design and control theory fundamentals.",
     technologies: ["Digital Logic", "Operational Amplifiers", "DAC", "Circuit Design"],
-    githubUrl: "https://github.com/avi-guha",
-    category: "Electronics",
+    categories: ["Hardware Design"],
     slug: "servo-motor-control"
   },
   {
@@ -33,15 +32,14 @@ const projects = [
     description: "Programmed an ESP-32 microcontroller to interface with a PS4 controller via Bluetooth, enabling precise control of a servo motor and brushless DC motor. Includes custom 3D-modeled chassis designed in Solidworks.",
     technologies: ["C++", "ESP-32", "Bluetooth", "Solidworks", "PCB Design"],
     githubUrl: "https://github.com/avi-guha/RC-Car",
-    category: "Embedded Systems",
+    categories: ["Embedded Systems", "Mechatronics", "Hardware Design"],
     slug: "rc-car"
   },
   {
     title: "UBC Thunderbots Power Board",
     description: "Designed mission-critical power system for RoboCup robots managing >200V capacitor charging with 92% efficiency flyback converter. Integrated CAN bus achieving 1000% communication speed improvement. Competition-proven reliability.",
     technologies: ["Altium", "Power Electronics", "CAN Protocol", "Circuit Design"],
-    githubUrl: "https://github.com/avi-guha",
-    category: "Robotics",
+    categories: ["Hardware Design", "Embedded Systems", "Robotics"],
     slug: "thunderbots-power-board"
   },
   {
@@ -49,23 +47,21 @@ const projects = [
     description: "Developed a Java application using OpenCV to visualize and analyze progressive decay of monolayer graphene and MXene flakes. Implemented PID-controlled humidity regulation for atomic force microscopy experiments.",
     technologies: ["Java", "OpenCV", "PID Control", "Materials Science"],
     githubUrl: "https://github.com/avi-guha/EdgeDetectionApp",
-    category: "Research",
+    categories: ["Research"],
     slug: "afm-materials-analysis"
   },
   {
     title: "APSC 101 Autonomous Claw",
     description: "First microcontroller project featuring an Arduino-controlled claw mechanism capable of picking up objects of varying sizes, shapes, and masses. Hands-on experience with metalworking and mechanical design.",
     technologies: ["Arduino", "C++", "Mechanical Design", "Prototyping"],
-    githubUrl: "https://github.com/avi-guha",
-    category: "Mechatronics",
+    categories: ["Embedded Systems", "Hardware Design", "Mechatronics"],
     slug: "autonomous-claw"
   },
   {
     title: "Break Beam Board",
     description: "Eliminated 95%+ false detections through innovative multi-photodiode AND-gate architecture. Redesigned ball detection system for UBC Thunderbots achieving near-perfect reliability in debris-filled competition environments.",
     technologies: ["PCB Design", "Photodiodes", "Digital Logic", "Altium"],
-    githubUrl: "https://github.com/avi-guha",
-    category: "Robotics",
+    categories: ["Hardware Design", "Robotics", "Embedded Systems"],
     slug: "break-beam-board"
   },
   {
@@ -73,7 +69,7 @@ const projects = [
     description: "Built autonomous navigation system with custom CNNs achieving 95%+ sign recognition accuracy and zero-collision imitation learning. Self-taught reinforcement learning and implemented custom reward functions, all from scratch in ROS Gazebo.",
     technologies: ["Python", "ROS", "Machine Learning", "Computer Vision", "TensorFlow"],
     githubUrl: "https://github.com/avi-guha/ENPH-353-COMPETITION",
-    category: "Machine Learning",
+    categories: ["AI & Machine Learning", "Robotics"],
     slug: "ros-clue-detective"
   },
   {
@@ -81,15 +77,14 @@ const projects = [
     description: "Led SPI-to-CAN migration improving communication reliability 10x. Mastered differential impedance matching, signal integrity analysis, and high-speed PCB design, achieving professional-grade 120Ω ±5% impedance control.",
     technologies: ["CAN Protocol", "PCB Design", "Differential Signaling", "Altium"],
     githubUrl: "https://github.com/avi-guha/CanFirmwareTesting",
-    category: "Hardware Design",
+    categories: ["Hardware Design", "Embedded Systems", "Robotics"],
     slug: "can-prototype"
   },
   {
     title: "Thunderbots Motor Driver",
     description: "Achieved 90% footprint reduction through 4-layer HDI PCB design while adding CAN interface. Implemented sensorless FOC firmware delivering 95% motor efficiency with <30-second hot-swap capability for competition reliability.",
     technologies: ["PCB Design", "Embedded C", "FOC", "CAN Protocol", "Altium"],
-    githubUrl: "https://github.com/avi-guha",
-    category: "Robotics",
+    categories: ["Embedded Systems", "Robotics", "Hardware Design"],
     slug: "thunderbots-motor-driver"
   }
 ];
@@ -107,10 +102,12 @@ const ProjectCard = ({ project }: { project: typeof projects[number] }) => {
         transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
       }}
     >
-      <div className="mb-4">
-        <span className="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">
-          {project.category}
-        </span>
+      <div className="mb-4 flex flex-wrap gap-2">
+        {project.categories.map((cat) => (
+          <span key={cat} className="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">
+            {cat}
+          </span>
+        ))}
       </div>
 
       <Link to={`/projects/${project.slug}`}>
@@ -135,16 +132,18 @@ const ProjectCard = ({ project }: { project: typeof projects[number] }) => {
       </div>
 
       <div className="flex gap-4 pt-4 border-t border-border">
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
-          aria-label={`View ${project.title} on GitHub`}
-        >
-          <Github size={16} />
-          <span className="text-sm">Code</span>
-        </a>
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
+            aria-label={`View ${project.title} on GitHub`}
+          >
+            <Github size={16} />
+            <span className="text-sm">Code</span>
+          </a>
+        )}
         <Link
           to={`/projects/${project.slug}`}
           className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors ml-auto"
@@ -160,7 +159,7 @@ const ProjectCard = ({ project }: { project: typeof projects[number] }) => {
 
 const Projects = () => {
   const categories = useMemo(() => {
-    const cats = Array.from(new Set(projects.map((p) => p.category)));
+    const cats = Array.from(new Set(projects.flatMap((p) => p.categories)));
     return ["All", ...cats.sort()];
   }, []);
 
@@ -168,7 +167,7 @@ const Projects = () => {
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === "All") return projects;
-    return projects.filter((p) => p.category === activeFilter);
+    return projects.filter((p) => p.categories.includes(activeFilter));
   }, [activeFilter]);
 
   return (
@@ -189,8 +188,8 @@ const Projects = () => {
               key={cat}
               onClick={() => setActiveFilter(cat)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${activeFilter === cat
-                  ? "bg-foreground text-background"
-                  : "bg-muted text-muted-foreground hover:bg-foreground/10 hover:text-foreground"
+                ? "bg-foreground text-background"
+                : "bg-muted text-muted-foreground hover:bg-foreground/10 hover:text-foreground"
                 }`}
             >
               {cat}
