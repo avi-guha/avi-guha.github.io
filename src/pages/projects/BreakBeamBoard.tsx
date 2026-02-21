@@ -11,7 +11,7 @@ const BreakBeamBoard = () => {
   }, []);
 
   const handleBackClick = () => {
-    navigate('/', { state: { scrollTo: 'projects' } });
+    navigate('/projects');
   };
 
   return (

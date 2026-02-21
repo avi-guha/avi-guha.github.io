@@ -11,7 +11,7 @@ const ServoMotorControl = () => {
   }, []);
 
   const handleBackClick = () => {
-    navigate('/', { state: { scrollTo: 'projects' } });
+    navigate('/projects');
   };
 
   return (

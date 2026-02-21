@@ -11,7 +11,7 @@ const ToneLens = () => {
   }, []);
 
   const handleBackClick = () => {
-    navigate('/', { state: { scrollTo: 'projects' } });
+    navigate('/projects');
   };
 
   return (
