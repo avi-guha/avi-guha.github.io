@@ -15,7 +15,7 @@ const AutonomousPetRescuingRobot = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen animate-page-fade-in">
       <Navigation />
       
       <main className="pt-20">

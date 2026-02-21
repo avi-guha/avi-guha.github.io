@@ -15,13 +15,13 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
-    
+
     console.log('Attempting to send email with data:', {
       from_name: formData.name,
       from_email: formData.email,
       message: formData.message,
     });
-    
+
     try {
       // EmailJS configuration
       const result = await emailjs.send(
@@ -34,7 +34,7 @@ const Contact = () => {
         },
         '5-dtEr0uA1LPYYPfT' // Your EmailJS public key
       );
-      
+
       console.log('Email sent successfully!', result);
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
@@ -69,8 +69,8 @@ const Contact = () => {
           <div className="animate-slide-in">
             <h3 className="text-2xl font-semibold mb-6">Let's Connect</h3>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              Whether you're looking to collaborate on a project, discuss research or career opportunities, 
-              or just want to chat about the fascinating intersection of physics and engineering, 
+              Whether you're looking to collaborate on a project, discuss research or career opportunities,
+              or just want to chat about the fascinating intersection of physics and engineering,
               I'm always open to new connections and conversations.
             </p>
 
@@ -81,8 +81,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-medium">Email</p>
-                  <a 
-                    href="mailto:avi.guha05@gmail.com" 
+                  <a
+                    href="mailto:avi.guha05@gmail.com"
                     className="text-muted-foreground hover:text-accent transition-colors"
                   >
                     avi.guha05@gmail.com
@@ -106,8 +106,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-medium">Phone</p>
-                  <a 
-                    href="tel:+14038059675" 
+                  <a
+                    href="tel:+14038059675"
                     className="text-muted-foreground hover:text-accent transition-colors"
                   >
                     403-805-9675
@@ -156,7 +156,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-colors placeholder:text-foreground/50"
                     placeholder="Your name"
                   />
                 </div>
@@ -172,7 +172,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-colors placeholder:text-foreground/50"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -188,7 +188,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-colors resize-none placeholder:text-foreground/50"
                     placeholder="Tell me about your project or just say hello!"
                   ></textarea>
                 </div>

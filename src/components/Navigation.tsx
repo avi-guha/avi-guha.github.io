@@ -1,33 +1,18 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { useNavigate, useLocation } from "react-router-dom";
-import ThemeToggle from "./ThemeToggle";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
   const location = useLocation();
 
-  const scrollToSection = (sectionId: string) => {
-    // If we're on a project page, navigate to home first
-    if (location.pathname !== '/') {
-      navigate('/', { state: { scrollTo: sectionId } });
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-    setIsOpen(false);
-  };
-
   const navItems = [
-    { label: "Home", id: "home" },
-    { label: "About", id: "about" },
-    { label: "Projects", id: "projects" },
-    { label: "Skills", id: "skills" },
-    { label: "Resume", id: "resume" },
-    { label: "Contact", id: "contact" },
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "Experience", path: "/experience" },
+    { label: "Projects", path: "/projects" },
+    { label: "Resume", path: "/resume" },
+    { label: "Contact", path: "/contact" },
   ];
 
   return (
@@ -36,28 +21,28 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <span className="text-xl font-bold text-foreground">Avi</span>
+            <Link to="/" className="text-xl font-medium text-foreground">
+              Avi
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
               {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="nav-link"
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`nav-link ${location.pathname === item.path ? "active" : ""}`}
                 >
                   {item.label}
-                </button>
+                </Link>
               ))}
-              <ThemeToggle />
             </div>
           </div>
 
           {/* Mobile Navigation Controls */}
           <div className="md:hidden flex items-center gap-3">
-            <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-foreground hover:text-accent transition-colors"
@@ -72,13 +57,14 @@ const Navigation = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-border">
               {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
                   className="block w-full text-left px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {item.label}
-                </button>
+                </Link>
               ))}
             </div>
           </div>

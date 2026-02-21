@@ -1,109 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Modern Engineering Portfolio Design System */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @layer base {
   :root {
-    /* Core Colors - Professional Engineering Theme */
-    --background: 0 0% 100%;
-    --foreground: 220 15% 15%;
+    --background: 30 48% 74%;
+    --foreground: 0 0% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
+    --card: 30 45% 72%;
+    --card-foreground: 0 0% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
+    --popover: 30 48% 74%;
+    --popover-foreground: 0 0% 15%;
 
-    /* Primary - Deep Navy for Engineering Authority */
-    --primary: 220 25% 20%;
-    --primary-foreground: 0 0% 100%;
-    --primary-hover: 220 25% 15%;
+    --primary: 0 0% 15%;
+    --primary-foreground: 30 48% 74%;
+    --primary-hover: 0 0% 25%;
 
-    /* Secondary - Clean Gray */
-    --secondary: 220 10% 96%;
-    --secondary-foreground: 220 15% 15%;
-    --secondary-hover: 220 10% 92%;
+    --secondary: 30 30% 68%;
+    --secondary-foreground: 0 0% 15%;
+    --secondary-hover: 30 30% 63%;
 
-    /* Accent - Professional Blue */
-    --accent: 215 60% 55%;
-    --accent-foreground: 0 0% 100%;
-    --accent-hover: 215 60% 50%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 30 48% 74%;
+    --accent-hover: 0 0% 25%;
 
-    --muted: 220 10% 96%;
-    --muted-foreground: 220 8% 55%;
+    --muted: 30 30% 68%;
+    --muted-foreground: 0 0% 30%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 215 60% 55%;
-
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(220 25% 20%), hsl(215 25% 25%));
-    --gradient-accent: linear-gradient(135deg, hsl(215 60% 55%), hsl(220 55% 60%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 25% 20% / 0.05), hsl(215 60% 55% / 0.1));
-
-    /* Shadows */
-    --shadow-soft: 0 2px 10px hsl(220 25% 20% / 0.08);
-    --shadow-medium: 0 4px 20px hsl(220 25% 20% / 0.12);
-    --shadow-strong: 0 8px 30px hsl(220 25% 20% / 0.15);
-
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --border: 30 20% 60%;
+    --input: 30 20% 60%;
+    --ring: 0 0% 15%;
 
     --radius: 0.75rem;
-  }
-
-  .dark {
-    /* Dark Backgrounds - Rich navy complementing light mode */
-    --background: 220 30% 6%;
-    --foreground: 210 40% 95%;
-
-    --card: 220 25% 8%;
-    --card-foreground: 210 40% 95%;
-
-    --popover: 220 25% 8%;
-    --popover-foreground: 210 40% 95%;
-
-    /* Primary - Brighter blue for dark mode contrast */
-    --primary: 215 70% 60%;
-    --primary-foreground: 220 30% 6%;
-    --primary-hover: 215 70% 65%;
-
-    /* Secondary - Subtle dark surfaces */
-    --secondary: 220 20% 12%;
-    --secondary-foreground: 210 40% 95%;
-    --secondary-hover: 220 20% 16%;
-
-    /* Accent - Vibrant blue that pops on dark */
-    --accent: 215 75% 65%;
-    --accent-foreground: 220 30% 6%;
-    --accent-hover: 215 75% 70%;
-
-    --muted: 220 20% 12%;
-    --muted-foreground: 220 15% 70%;
-
-    --destructive: 0 75% 65%;
-    --destructive-foreground: 210 40% 95%;
-
-    --border: 220 20% 16%;
-    --input: 220 20% 16%;
-    --ring: 215 75% 65%;
-
-    /* Enhanced Dark mode gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(215 70% 60%), hsl(220 65% 65%));
-    --gradient-accent: linear-gradient(135deg, hsl(215 75% 65%), hsl(220 70% 70%));
-    --gradient-hero: linear-gradient(135deg, hsl(215 75% 65% / 0.08), hsl(220 70% 70% / 0.04));
-
-    /* Enhanced dark shadows with blue tint */
-    --shadow-soft: 0 2px 10px hsl(220 30% 0% / 0.4);
-    --shadow-medium: 0 4px 20px hsl(220 30% 0% / 0.5);
-    --shadow-strong: 0 8px 30px hsl(220 30% 0% / 0.6);
   }
 }
 
@@ -118,24 +53,30 @@
     font-variation-settings: "opsz" 32;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-medium tracking-tight;
   }
 
   h1 {
-    @apply text-5xl md:text-6xl lg:text-7xl font-bold;
+    @apply text-5xl md:text-6xl lg:text-7xl font-medium;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl;
+    @apply text-3xl md:text-4xl lg:text-5xl font-medium;
   }
 
   h3 {
-    @apply text-2xl md:text-3xl;
+    @apply text-2xl md:text-3xl font-medium;
   }
 }
 
 @layer components {
+
   /* Button Variants */
   .btn-hero {
     @apply bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-8 py-3 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105;
@@ -172,6 +113,103 @@
     @apply bg-card border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02];
   }
 
+  /* Timeline */
+  .timeline-container {
+    position: relative;
+    padding-left: 0;
+    padding-bottom: 20vh;
+  }
+
+  .timeline-line {
+    position: absolute;
+    left: 139px;
+    width: 2px;
+    background: hsl(var(--border));
+  }
+
+  .timeline-line-progress {
+    position: absolute;
+    left: 139px;
+    width: 2px;
+    background: hsl(var(--foreground));
+    transition: height 0.3s ease-out;
+    z-index: 1;
+  }
+
+  .timeline-entry {
+    display: grid;
+    grid-template-columns: 120px 40px 1fr;
+    gap: 0;
+    padding-bottom: 3rem;
+    position: relative;
+  }
+
+  .timeline-date {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-right: 0;
+    padding-top: 6px;
+  }
+
+  .timeline-dot-col {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 6px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid hsl(var(--foreground));
+    background: hsl(var(--background));
+    flex-shrink: 0;
+    /* Transform origin at center so scale doesn't shift position */
+    transform-origin: center center;
+  }
+
+  .timeline-content {
+    padding-top: 0;
+    padding-left: 4px;
+  }
+
+  /* Responsive: stack on mobile */
+  @media (max-width: 640px) {
+
+    .timeline-container {
+      padding-bottom: 15vh;
+    }
+
+    .timeline-line,
+    .timeline-line-progress {
+      left: 15px;
+    }
+
+    .timeline-entry {
+      grid-template-columns: 0px 32px 1fr;
+    }
+
+    .timeline-date {
+      display: none;
+    }
+
+    .timeline-dot-col {
+      padding-top: 4px;
+    }
+
+    .timeline-content::before {
+      content: attr(data-period);
+      display: block;
+      font-size: 0.8rem;
+      color: hsl(var(--muted-foreground));
+      margin-bottom: 0.25rem;
+    }
+  }
+
   /* Gradients */
   .gradient-hero {
     background: var(--gradient-hero);
@@ -203,6 +241,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -214,8 +253,25 @@
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-fade-in {
+  animation: pageFadeIn 0.5s ease-out forwards;
 }

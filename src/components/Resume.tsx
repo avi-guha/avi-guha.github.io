@@ -20,8 +20,8 @@ const Resume = () => {
             </div>
           </div>
 
-          <h3 className="text-2xl font-semibold mb-4">Avi Guha - Resume</h3>
-          
+          <h3 className="text-2xl font-medium mb-4">Avi Guha - Resume</h3>
+
           <div className="space-y-4 mb-8">
             <div className="flex items-center justify-center gap-2 text-muted-foreground">
               <span className="font-medium">Engineering Physics Student</span>
@@ -42,9 +42,9 @@ const Resume = () => {
               </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="gap-2">
-              <a 
-                href="https://www.linkedin.com/in/avi-guha/" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/in/avi-guha/"
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 View LinkedIn Profile
@@ -55,28 +55,28 @@ const Resume = () => {
           <div className="mt-8 pt-8 border-t border-border">
             <div className="grid md:grid-cols-3 gap-6 text-sm">
               <div>
-                <p className="font-semibold text-accent mb-2">Contact</p>
+                <p className="font-medium text-accent mb-2">Contact</p>
                 <p className="text-muted-foreground">avi.guha05@gmail.com</p>
                 <p className="text-muted-foreground">403-805-9675</p>
               </div>
               <div>
-                <p className="font-semibold text-accent mb-2">Location</p>
+                <p className="font-medium text-accent mb-2">Location</p>
                 <p className="text-muted-foreground">Vancouver, BC</p>
                 <p className="text-muted-foreground">Canada</p>
               </div>
               <div>
-                <p className="font-semibold text-accent mb-2">Links</p>
-                <a 
-                  href="https://github.com/avi-guha" 
-                  target="_blank" 
+                <p className="font-medium text-accent mb-2">Links</p>
+                <a
+                  href="https://github.com/avi-guha"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="block text-muted-foreground hover:text-accent transition-colors"
                 >
                   GitHub
                 </a>
-                <a 
-                  href="https://www.linkedin.com/in/avi-guha/" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/in/avi-guha/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="block text-muted-foreground hover:text-accent transition-colors"
                 >

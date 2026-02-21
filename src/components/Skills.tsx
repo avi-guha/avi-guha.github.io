@@ -58,16 +58,12 @@ const Skills = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category, index) => (
-            <div
-              key={index}
-              className="animate-fade-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
+            <div key={index}>
               <div className="project-card h-full">
-                <h3 className="text-lg font-semibold mb-6 text-accent">
+                <h3 className="text-lg font-medium mb-6 text-accent">
                   {category.title}
                 </h3>
-                
+
                 <div className="space-y-3">
                   {category.skills.map((skill) => (
                     <div
@@ -90,7 +86,7 @@ const Skills = () => {
           <div className="inline-flex items-center gap-4 px-8 py-4 bg-accent/10 rounded-2xl">
             <div className="text-2xl">🎓</div>
             <div>
-              <p className="font-semibold text-accent">Engineering Physics</p>
+              <p className="font-medium text-accent">Engineering Physics</p>
               <p className="text-sm text-muted-foreground">
                 Combining rigorous physics training with practical engineering applications
               </p>
