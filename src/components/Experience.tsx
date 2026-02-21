@@ -2,38 +2,42 @@ import { useEffect, useRef, useState, useCallback } from "react";
 
 const experiences = [
   {
-    title: "Undergraduate Silicon Quantum Photonics Researcher",
+    title: "Quantum Silicon Photonics Researcher",
     role: "Stewart Blusson Quantum Matter Institute",
     period: "Jan 2026 - Present",
     location: "Vancouver, BC",
     description: [
-      "Investigating the usage of nanowire single photon detectors on silicon for spin detection in photon-based quantum computers.",
-      "Engineered RF (~3GHz) PCBAs to interface between cryogenic (4 Kelvin) photon detectors and room temperature acquisition systems, ensuring impedance matching and high signal to noise ratio.",
-      "Developed a variable low-noise current source for superconducting biasing applications, delivering up to 8mA with less than 5mA of RMS noise.",
-      "Designed a low-noise amplifier to operate at 4 Kelvin with 50 MHz–3 GHz bandwidth and less than 100 mW power dissipation.",
-      "Engineering a high-power RF amplifier, operating at 300 Kelvin, to maximise the signal to noise ratio from single photon detectors."
+      "Researched the use of superconducting nanowire photon detectors on silicon for photon-based quantum computers.",
+      "Engineered a variable low noise current source using a DAC, controlled with SPI, to reliably bias superconducting wires.",
+      "Implemented a low-noise amplifier with a 50 MHz – 3 GHz bandwidth and less than 100 mW power dissipation.",
+      "Developed a high power RF amplifier using Cadence Allegro to maximize the signal to noise ratio from photon detectors."
     ]
   },
   {
-    title: "Electrical Designer",
+    title: "Electrical and Firmware Engineer",
     role: "UBC Thunderbots",
-    period: "Sep 2024 - Present",
+    period: "Sept 2024 - Present",
     location: "Vancouver, BC",
     description: [
-      "Researched, designed, and implemented a flyback circuit to convert 24V to 240V, enabling energy storage in a 2mF capacitor for launching a golf ball at speeds exceeding 40 km/h.",
-      "Led the design and development of a power distribution board, isolating low (<24V) and high (~240V) voltages, improving overall robot safety.",
-      "Engineered an infrared break-beam sensor board to detect ball possession, improving robot ball control by 40% during international competition.",
-      "Led the implementation of a CAN communication interface which increased board-board communication speed by over 1000%."
+      "Led the design of a power distribution board which galvanically isolated low (3.3V – 24V) and high (240V) voltages.",
+      "Engineered linear, switching, and flyback voltage regulators to precisely distribute power to components across the robot.",
+      "Designed an SPI-CAN interface board, mitigating EMI effects, improving signal integrity on critical communication lines.",
+      "Implemented trans-impedance amplification based current sensing, enabling field oriented control of three-phase motors.",
+      "Optimized the layout of a three-phase motor driver board, improving gate driver stability and current sense accuracy.",
+      "Spearheaded CI firmware deployment by interfacing a Raspberry PI and multiple STM32s over SWD enabling autoflash.",
+      "Developed firmware in C for an STM32, implementing real-time FOC algorithms for 20% more efficient motor control."
     ]
   },
   {
-    title: "Undergraduate 2D Physics Researcher",
+    title: "2D Physics Research Intern",
     role: "University of Calgary",
     period: "Jan 2025 - May 2025",
     location: "Calgary, AB",
     description: [
-      "Developed and implemented a PID-controlled fluid cell to regulate humidity from 0%-95% RH in an atomic force microscope, improving experimental precision on 2-D graphene and MXene materials.",
-      "Designed a full-cycle Java application using OpenCV, enabling researchers to visualize and analyze progressive decay of monolayer flakes under repeated wear."
+      "Researched the tribological properties of 2D materials for applications in MEMS/NEMS using atomic force microscopy.",
+      "Developed a PID controlled fluid cell, enabling researchers to examine the effect of humidity on 2D materials.",
+      "Developed a full-cycle Java application using OpenCV, allowing researchers to visualize wear due to repetitive forces.",
+      "Designed a TEM sample holder in Solidworks with 2 μm tolerances that operated in ultra-high vacuum environments."
     ]
   },
   {
