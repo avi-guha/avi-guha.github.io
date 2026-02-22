@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +28,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center">
             <div className="ml-10 flex items-center space-x-8">
               {navItems.map((item) => (
                 <Link
@@ -39,10 +40,14 @@ const Navigation = () => {
                 </Link>
               ))}
             </div>
+            <div className="ml-6">
+              <ThemeToggle />
+            </div>
           </div>
 
           {/* Mobile Navigation Controls */}
           <div className="md:hidden flex items-center gap-3">
+            <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-foreground hover:text-accent transition-colors"
