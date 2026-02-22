@@ -78,10 +78,13 @@ const Terminal = () => {
     }, [location.pathname]);
 
     // Force terminal open when arriving at the home page so there is no blank placeholder gap
+    // Hide it when navigating away via navbar
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
-        if (location.pathname === '/' && windowState !== 'open') {
-            setWindowState('open');
+        if (location.pathname === '/') {
+            if (windowState !== 'open') setWindowState('open');
+        } else {
+            if (windowState === 'open') setWindowState('minimized');
         }
     }, [location.pathname]);
 
