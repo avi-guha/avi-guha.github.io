@@ -1,7 +1,8 @@
 import { useState, useMemo } from "react";
-import { Github, ArrowRight } from "lucide-react";
+import { Github, ArrowRight, LayoutGrid, Share2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useFadeInOnScroll } from "../hooks/useFadeInOnScroll";
+import ProjectsMindMap from "./ProjectsMindMap";
 
 const projects = [
   {
@@ -47,8 +48,7 @@ const projects = [
     description: "Developed a Java application using OpenCV to visualize and analyze progressive decay of monolayer graphene and MXene flakes. Implemented PID-controlled humidity regulation for atomic force microscopy experiments.",
     technologies: ["Java", "OpenCV", "PID Control", "Materials Science"],
     githubUrl: "https://github.com/avi-guha/EdgeDetectionApp",
-    categories: ["Research"],
-    slug: "afm-materials-analysis"
+    categories: ["Research", "AI & Machine Learning"],
   },
   {
     title: "APSC 101 Autonomous Claw",
@@ -164,6 +164,7 @@ const Projects = () => {
   }, []);
 
   const [activeFilter, setActiveFilter] = useState("All");
+  const [view, setView] = useState<"cards" | "mindmap">("cards");
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === "All") return projects;
@@ -181,32 +182,65 @@ const Projects = () => {
           <div className="w-20 h-1 bg-accent mx-auto rounded-full"></div>
         </div>
 
-        {/* Category Filter Pills */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveFilter(cat)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${activeFilter === cat
+        {/* View Toggle */}
+        <div className="flex justify-center gap-2 mb-8">
+          <button
+            onClick={() => setView("cards")}
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              view === "cards"
                 ? "bg-foreground text-background"
                 : "bg-muted text-muted-foreground hover:bg-foreground/10 hover:text-foreground"
-                }`}
-            >
-              {cat}
-            </button>
-          ))}
+            }`}
+          >
+            <LayoutGrid size={15} />
+            Cards
+          </button>
+          <button
+            onClick={() => setView("mindmap")}
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              view === "mindmap"
+                ? "bg-foreground text-background"
+                : "bg-muted text-muted-foreground hover:bg-foreground/10 hover:text-foreground"
+            }`}
+          >
+            <Share2 size={15} />
+            Mind Map
+          </button>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-        </div>
+        {view === "mindmap" ? (
+          <ProjectsMindMap />
+        ) : (
+          <>
+            {/* Category Filter Pills */}
+            <div className="flex flex-wrap justify-center gap-2 mb-12">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveFilter(cat)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                    activeFilter === cat
+                      ? "bg-foreground text-background"
+                      : "bg-muted text-muted-foreground hover:bg-foreground/10 hover:text-foreground"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
 
-        {filteredProjects.length === 0 && (
-          <p className="text-center text-muted-foreground py-12">
-            No projects found in this category.
-          </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProjects.map((project) => (
+                <ProjectCard key={project.slug} project={project} />
+              ))}
+            </div>
+
+            {filteredProjects.length === 0 && (
+              <p className="text-center text-muted-foreground py-12">
+                No projects found in this category.
+              </p>
+            )}
+          </>
         )}
       </div>
     </section>
