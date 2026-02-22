@@ -198,7 +198,7 @@ const Experience = () => {
                 </div>
 
                 {/* Content card */}
-                <div className="timeline-content">
+                <div className="timeline-content" data-period={exp.period}>
                   <div
                     className="project-card"
                     style={{
@@ -208,8 +208,8 @@ const Experience = () => {
                       transition: "border-color 0.5s ease",
                     }}
                   >
-                    <h3 className="text-xl font-medium mb-1">{exp.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-4">
+                    <h3 className="text-lg sm:text-xl font-medium mb-1">{exp.title}</h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
                       {exp.role} · {exp.location}
                     </p>
                     <ul className="space-y-2">
