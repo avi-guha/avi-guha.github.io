@@ -47,8 +47,8 @@ function pickShape(): ShapeKind {
 function sizeForLabel(label: string, base: number, isMobile: boolean): number {
   const len = label.length;
   const scale = isMobile ? 0.55 : 0.7;
-  // short labels keep the base; longer labels grow logarithmically
-  return base + Math.log2(Math.max(1, len / 6)) * base * scale * 0.35;
+  // short labels keep the base; longer labels grow more aggressively
+  return base + Math.log2(Math.max(1, len / 5)) * base * scale * 0.48;
 }
 
 /* ───────── physics body ───────── */
