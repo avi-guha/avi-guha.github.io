@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Terminal as TerminalIcon } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 
@@ -40,13 +40,28 @@ const Navigation = () => {
                 </Link>
               ))}
             </div>
-            <div className="ml-6">
+            <div className="ml-6 flex items-center gap-4">
+              <button
+                onClick={() => window.dispatchEvent(new KeyboardEvent('keydown', { ctrlKey: true, key: '`' }))}
+                className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-md hover:bg-accent/10"
+                aria-label="Toggle Terminal (Ctrl+`)"
+                title="Toggle Terminal (Ctrl+`)"
+              >
+                <TerminalIcon size={20} />
+              </button>
               <ThemeToggle />
             </div>
           </div>
 
           {/* Mobile Navigation Controls */}
-          <div className="md:hidden flex items-center gap-3">
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={() => window.dispatchEvent(new KeyboardEvent('keydown', { ctrlKey: true, key: '`' }))}
+              className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-md"
+              aria-label="Toggle Terminal"
+            >
+              <TerminalIcon size={20} />
+            </button>
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}

@@ -6,6 +6,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Terminal from "./components/Terminal";
 
 // Section pages
 import AboutPage from "./pages/sections/AboutPage";
@@ -65,6 +66,7 @@ const App = () => {
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <Terminal />
           </HashRouter>
         </TooltipProvider>
       </ThemeProvider>

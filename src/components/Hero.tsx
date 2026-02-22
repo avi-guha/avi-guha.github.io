@@ -28,7 +28,7 @@ const Hero = () => {
             </Link>
           </div>
 
-          <div className="flex justify-center space-x-6 mb-8">
+          <div className="flex justify-center space-x-6 mb-12">
             <a
               href="https://github.com/avi-guha"
               target="_blank"
@@ -55,6 +55,8 @@ const Hero = () => {
               <Mail size={24} />
             </a>
           </div>
+
+          <div id="terminal-placeholder" className="w-full max-w-2xl mx-auto h-[400px]"></div>
         </div>
       </div>
     </section>
