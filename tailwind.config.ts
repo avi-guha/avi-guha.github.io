@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
+        inter: ['"KaTeX_Main"', '"Latin Modern Roman"', '"CMU Serif"', '"Times New Roman"', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",

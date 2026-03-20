@@ -104,7 +104,7 @@ const ProjectCard = ({ project }: { project: typeof projects[number] }) => {
     >
       <div className="mb-4 flex flex-wrap gap-2">
         {project.categories.map((cat) => (
-          <span key={cat} className="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full">
+          <span key={cat} className="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-none">
             {cat}
           </span>
         ))}
@@ -186,7 +186,7 @@ const Projects = () => {
         <div className="flex justify-center gap-2 mb-8">
           <button
             onClick={() => setView("cards")}
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-none text-sm font-medium transition-all duration-200 ${
               view === "cards"
                 ? "bg-foreground text-background"
                 : "bg-muted text-muted-foreground hover:bg-foreground/10 hover:text-foreground"
@@ -197,7 +197,7 @@ const Projects = () => {
           </button>
           <button
             onClick={() => setView("mindmap")}
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-none text-sm font-medium transition-all duration-200 ${
               view === "mindmap"
                 ? "bg-foreground text-background"
                 : "bg-muted text-muted-foreground hover:bg-foreground/10 hover:text-foreground"
@@ -218,7 +218,7 @@ const Projects = () => {
                 <button
                   key={cat}
                   onClick={() => setActiveFilter(cat)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                  className={`px-4 py-2 rounded-none text-sm font-medium transition-all duration-200 ${
                     activeFilter === cat
                       ? "bg-foreground text-background"
                       : "bg-muted text-muted-foreground hover:bg-foreground/10 hover:text-foreground"

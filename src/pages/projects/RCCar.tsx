@@ -30,7 +30,7 @@ const RCCar = () => {
             </button>
 
             <div className="mb-8">
-              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
+              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-none">
                 Embedded Systems
               </span>
             </div>

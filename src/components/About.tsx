@@ -39,7 +39,7 @@ const About = () => {
               ].map((interest) => (
                 <span
                   key={interest}
-                  className="px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium"
+                  className="px-4 py-2 bg-accent/10 text-accent rounded-md text-sm font-medium"
                 >
                   {interest}
                 </span>
@@ -58,7 +58,7 @@ const About = () => {
                   />
                 </div>
               </div>
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-background px-6 py-3 rounded-full shadow-lg border border-border">
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-background px-6 py-3 rounded-none shadow-lg border border-border">
                 <p className="text-sm font-medium text-foreground whitespace-nowrap">
                   Engineering Physics Student
                 </p>
