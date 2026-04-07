@@ -1,7 +1,22 @@
 import { Github, Linkedin, Mail } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleViewMyWork = () => {
+    const activeElement = document.activeElement;
+    if (activeElement instanceof HTMLElement) {
+      activeElement.blur();
+    }
+
+    navigate("/projects");
+
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    });
+  };
+
   return (
     <section id="home" className="pt-32 pb-12 flex items-center justify-center relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -20,9 +35,9 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Link to="/projects" className="btn-hero">
+            <button type="button" onClick={handleViewMyWork} className="btn-hero">
               View My Work
-            </Link>
+            </button>
             <Link to="/contact" className="btn-hero-outline">
               Get In Touch
             </Link>

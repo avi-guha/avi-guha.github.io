@@ -30,7 +30,7 @@ const ToneLens = () => {
             </button>
 
             <div className="mb-8">
-              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-none">
+              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
                 AI & Machine Learning
               </span>
             </div>
@@ -169,12 +169,12 @@ const ToneLens = () => {
 
               <h2 className="text-2xl font-semibold mb-4 text-accent mt-8">Technologies Used</h2>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-accent/10 text-accent rounded-md text-sm">Gemini AI</span>
-                <span className="px-3 py-1 bg-accent/10 text-accent rounded-md text-sm">React</span>
-                <span className="px-3 py-1 bg-accent/10 text-accent rounded-md text-sm">TypeScript</span>
-                <span className="px-3 py-1 bg-accent/10 text-accent rounded-md text-sm">Natural Language Processing</span>
-                <span className="px-3 py-1 bg-accent/10 text-accent rounded-md text-sm">Image Processing</span>
-                <span className="px-3 py-1 bg-accent/10 text-accent rounded-md text-sm">API Integration</span>
+                <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Gemini AI</span>
+                <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">React</span>
+                <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">TypeScript</span>
+                <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Natural Language Processing</span>
+                <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Image Processing</span>
+                <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">API Integration</span>
               </div>
             </div>
           </div>

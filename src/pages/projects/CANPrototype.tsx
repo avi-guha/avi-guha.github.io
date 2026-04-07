@@ -30,7 +30,7 @@ const CANPrototype = () => {
             </button>
 
             <div className="mb-8">
-              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-none">
+              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
                 Hardware Design
               </span>
             </div>
@@ -170,7 +170,7 @@ const CANPrototype = () => {
                 {["CAN Protocol", "PCB Design", "Differential Signaling", "Altium Designer", "Signal Integrity", "Impedance Control", "Embedded Firmware"].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded"
+                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
                   >
                     {tech}
                   </span>

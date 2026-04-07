@@ -58,9 +58,9 @@ const About = () => {
                   />
                 </div>
               </div>
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-background px-6 py-3 rounded-none shadow-lg border border-border">
-                <p className="text-sm font-medium text-foreground whitespace-nowrap">
-                  Engineering Physics Student
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-background px-5 py-3 rounded-full shadow-lg border border-border">
+                <p className="text-lg leading-none text-foreground whitespace-nowrap" aria-label="Lightning bolt">
+                  ⚡
                 </p>
               </div>
             </div>

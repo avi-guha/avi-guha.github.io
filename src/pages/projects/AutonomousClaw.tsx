@@ -30,7 +30,7 @@ const AutonomousClaw = () => {
             </button>
 
             <div className="mb-8">
-              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-none">
+              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
                 Mechatronics
               </span>
             </div>
@@ -160,7 +160,7 @@ const AutonomousClaw = () => {
                 {["Arduino", "C++", "Servo Motors", "Mechanical Design", "Metalworking", "Prototyping"].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded"
+                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
                   >
                     {tech}
                   </span>

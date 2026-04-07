@@ -30,7 +30,7 @@ const AutonomousPetRescuingRobot = () => {
             </button>
 
             <div className="mb-8">
-              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-none">
+              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
                 Robotics & AI
               </span>
             </div>
@@ -180,7 +180,7 @@ const AutonomousPetRescuingRobot = () => {
                 {["C++", "Python", "YOLOv11", "Roboflow", "Computer Vision", "PCB Design", "FreeRTOS", "Raspberry Pi", "ESP-32"].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded"
+                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
                   >
                     {tech}
                   </span>

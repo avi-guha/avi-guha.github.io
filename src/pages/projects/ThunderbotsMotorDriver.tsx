@@ -30,7 +30,7 @@ const ThunderbotsMotorDriver = () => {
             </button>
 
             <div className="mb-8">
-              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-none">
+              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
                 Robotics
               </span>
             </div>
@@ -174,7 +174,7 @@ const ThunderbotsMotorDriver = () => {
                 {["PCB Design", "Embedded C", "Field Oriented Control", "CAN Protocol", "Altium Designer", "Thermal Management", "HDI Design"].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded"
+                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
                   >
                     {tech}
                   </span>

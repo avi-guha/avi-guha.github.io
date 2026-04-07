@@ -30,7 +30,7 @@ const ServoMotorControl = () => {
             </button>
 
             <div className="mb-8">
-              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-none">
+              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
                 Electronics
               </span>
             </div>
@@ -167,7 +167,7 @@ const ServoMotorControl = () => {
                 {["Digital Logic", "Operational Amplifiers", "DAC", "Circuit Design", "Analog Computing", "Optoelectronics"].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded"
+                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
                   >
                     {tech}
                   </span>

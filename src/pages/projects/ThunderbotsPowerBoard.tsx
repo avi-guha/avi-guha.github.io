@@ -30,7 +30,7 @@ const ThunderbotsPowerBoard = () => {
             </button>
 
             <div className="mb-8">
-              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-none">
+              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
                 Robotics
               </span>
             </div>
@@ -194,7 +194,7 @@ const ThunderbotsPowerBoard = () => {
                 {["Altium Designer", "Power Electronics", "Flyback Converters", "CAN Protocol", "Transformer Design", "High-Voltage Systems"].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded"
+                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
                   >
                     {tech}
                   </span>

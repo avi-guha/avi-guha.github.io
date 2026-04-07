@@ -46,6 +46,22 @@ const Terminal = () => {
     const { theme, setTheme } = useTheme();
 
     const bootSequence = "Type 'help' for commands or 'ls' to list directories.\nPress Ctrl + ` to toggle the terminal.";
+    const terminalClasses = {
+        shell: "bg-[#1a1b26] border-[#292e42]",
+        shellHover: "hover:border-[#3b4261]",
+        minimizedHover: "hover:bg-[#1f2335]",
+        header: "bg-[#16161e] border-[#292e42]",
+        body: "text-[#c0caf5]",
+        muted: "text-[#565f89]",
+        title: "text-[#a9b1d6]",
+        shortcut: "text-[#414868]",
+        accent: "text-[#7aa2f7]",
+        accentHover: "hover:text-[#89b4fa]",
+        prompt: "text-[#9ece6a]",
+        destructive: "text-[#f7768e]",
+        cursor: "bg-[#565f89]",
+        command: "text-[#c0caf5]",
+    } as const;
 
     // Global toggle shortcut
     useEffect(() => {
@@ -204,17 +220,17 @@ const Terminal = () => {
             // Empty command
         } else if (trimmedCmd.toLowerCase() === "help") {
             output = (
-                <div className="text-muted-foreground mt-1 mb-2">
+                <div className={`${terminalClasses.body} mt-1 mb-2`}>
                     <div>Available commands:</div>
                     <div className="grid grid-cols-[80px_1fr] gap-2 mt-2">
-                        <span className="text-accent font-semibold">ls</span> <span>List available sections</span>
-                        <span className="text-accent font-semibold">cd <span className="text-muted-foreground">&lt;dir&gt;</span></span> <span>Navigate to a section</span>
-                        <span className="text-accent font-semibold">clear</span> <span>Clear the terminal screen</span>
-                        <span className="text-accent font-semibold">theme</span> <span>Toggle light/dark mode</span>
-                        <span className="text-accent font-semibold">whoami</span> <span>Display current user info</span>
-                        <span className="text-accent font-semibold">sudo</span> <span>???</span>
+                        <span className={`${terminalClasses.accent} font-semibold`}>ls</span> <span>List available sections</span>
+                        <span className={`${terminalClasses.accent} font-semibold`}>cd <span className={terminalClasses.muted}>&lt;dir&gt;</span></span> <span>Navigate to a section</span>
+                        <span className={`${terminalClasses.accent} font-semibold`}>clear</span> <span>Clear the terminal screen</span>
+                        <span className={`${terminalClasses.accent} font-semibold`}>theme</span> <span>Toggle light/dark mode</span>
+                        <span className={`${terminalClasses.accent} font-semibold`}>whoami</span> <span>Display current user info</span>
+                        <span className={`${terminalClasses.accent} font-semibold`}>sudo</span> <span>???</span>
                     </div>
-                    <div className="mt-3 italic opacity-80">Tip: You can also click on the glowing names to navigate.</div>
+                    <div className={`mt-3 italic opacity-80 ${terminalClasses.muted}`}>Tip: You can also click on the glowing names to navigate.</div>
                 </div>
             );
         } else if (trimmedCmd.toLowerCase() === "ls" || trimmedCmd.toLowerCase() === "dir") {
@@ -223,12 +239,12 @@ const Terminal = () => {
                     {directories.map((dir) => (
                         <div key={dir.name} className="flex items-center gap-3">
                             <span
-                                className="text-accent hover:text-accent-hover font-semibold cursor-pointer underline decoration-accent/30 underline-offset-4 transition-colors"
+                                className={`${terminalClasses.accent} ${terminalClasses.accentHover} font-semibold cursor-pointer underline underline-offset-4 decoration-[#7aa2f7]/30 transition-colors`}
                                 onClick={() => navigate(dir.path)}
                             >
                                 {dir.name}/
                             </span>
-                            <span className="text-muted-foreground hidden sm:inline">- {dir.description}</span>
+                            <span className={`${terminalClasses.muted} hidden sm:inline`}>- {dir.description}</span>
                         </div>
                     ))}
                 </div>
@@ -245,9 +261,9 @@ const Terminal = () => {
                 if (dir) {
                     navigate(dir.path);
                     setWindowState("minimized");
-                    output = <div className="text-accent mt-1 mb-2">Routing to {dir.name}...</div>;
+                    output = <div className={`${terminalClasses.accent} mt-1 mb-2`}>Routing to {dir.name}...</div>;
                 } else {
-                    output = <div className="text-destructive mt-1 mb-2">cd: {target}: No such directory</div>;
+                    output = <div className={`${terminalClasses.destructive} mt-1 mb-2`}>cd: {target}: No such directory</div>;
                 }
             }
         } else if (trimmedCmd.toLowerCase() === "clear") {
@@ -256,13 +272,13 @@ const Terminal = () => {
         } else if (trimmedCmd.toLowerCase() === "theme" || trimmedCmd.toLowerCase() === "toggle theme") {
             const newTheme = theme === "dark" ? "light" : "dark";
             setTheme(newTheme);
-            output = <div className="text-accent mt-1 mb-2">Switching to {newTheme} mode...</div>;
+            output = <div className={`${terminalClasses.accent} mt-1 mb-2`}>Switching to {newTheme} mode...</div>;
         } else if (trimmedCmd.toLowerCase() === "whoami") {
-            output = <div className="text-muted-foreground mt-1 mb-2">guest@aviguha.github.io</div>;
+            output = <div className={`${terminalClasses.muted} mt-1 mb-2`}>guest@aviguha.github.io</div>;
         } else if (trimmedCmd.toLowerCase().startsWith("sudo ")) {
-            output = <div className="text-destructive mt-1 mb-2">guest is not in the sudoers file. This incident will be reported.</div>;
+            output = <div className={`${terminalClasses.destructive} mt-1 mb-2`}>lmao u thought</div>;
         } else {
-            output = <div className="text-destructive mt-1 mb-2">command not found: {trimmedCmd}</div>;
+            output = <div className={`${terminalClasses.destructive} mt-1 mb-2`}>command not found: {trimmedCmd}</div>;
         }
 
         setHistory((prev) => [...prev, { command: trimmedCmd, output }]);
@@ -337,12 +353,12 @@ const Terminal = () => {
             ref={containerRef}
             className={
                 isPortaled
-                    ? "w-full h-full rounded-xl shadow-2xl overflow-hidden font-mono text-sm sm:text-base text-left group border bg-[#0a0a0a] border-zinc-800"
-                    : `fixed z-50 transition-all shadow-2xl overflow-hidden font-mono text-sm sm:text-base text-left group border bg-[#0a0a0a] border-zinc-800 hover:border-zinc-700 hover:shadow-accent/10
+                    ? `w-full h-full rounded-xl shadow-2xl overflow-hidden font-mono text-sm sm:text-base text-left group border ${terminalClasses.shell}`
+                    : `fixed z-50 transition-all shadow-2xl overflow-hidden font-mono text-sm sm:text-base text-left group border ${terminalClasses.shell} ${terminalClasses.shellHover}
                     ${isMaximized
                         ? "bottom-0 left-0 right-0 top-0 w-full h-full rounded-none"
                         : isMinimized
-                            ? "bottom-0 left-1/2 -translate-x-1/2 w-full max-w-2xl rounded-t-xl h-12 cursor-pointer hover:bg-[#111]"
+                            ? `bottom-0 left-1/2 -translate-x-1/2 w-full max-w-2xl rounded-t-xl h-12 cursor-pointer ${terminalClasses.minimizedHover}`
                             : "bottom-4 left-1/2 -translate-x-1/2 w-full max-w-2xl rounded-xl h-[400px]"
                     }
                     ${isDragging ? 'duration-0 cursor-grabbing' : 'duration-300'}
@@ -358,7 +374,7 @@ const Terminal = () => {
         >
             {/* Terminal Header */}
             <div
-                className={`bg-[#151515] border-b border-zinc-800 px-4 flex items-center justify-between select-none ${isMinimized ? 'h-full border-b-0' : 'py-3'} ${windowState === 'open' ? 'cursor-grab active:cursor-grabbing' : ''}`}
+                className={`${terminalClasses.header} border-b px-4 flex items-center justify-between select-none ${isMinimized ? 'h-full border-b-0' : 'py-3'} ${windowState === 'open' ? 'cursor-grab active:cursor-grabbing' : ''}`}
                 onMouseDown={handleMouseDown}
             >
                 <div className="flex gap-2">
@@ -378,22 +394,22 @@ const Terminal = () => {
                         title="Maximize"
                     ></div>
                 </div>
-                <div className="flex items-center gap-2 text-zinc-400 text-xs font-semibold tracking-wider uppercase">
+                <div className={`flex items-center gap-2 ${terminalClasses.title} text-xs font-semibold tracking-wider uppercase`}>
                     <TerminalIcon size={14} />
                     <span>guest@avi-guha:~</span>
                 </div>
-                <div className="w-12 text-xs text-zinc-600 opacity-60 text-right whitespace-nowrap">Ctrl+`</div>
+                <div className={`w-12 text-xs ${terminalClasses.shortcut} opacity-60 text-right whitespace-nowrap`}>Ctrl+`</div>
             </div>
 
             {/* Terminal Body */}
             {!isMinimized && (
                 <div
                     ref={terminalRef}
-                    className={`p-6 overflow-y-auto text-zinc-300 custom-scrollbar ${isMaximized ? 'h-[calc(100vh-48px)]' : 'h-[calc(400px-48px)]'}`}
+                    className={`p-6 overflow-y-auto ${terminalClasses.body} custom-scrollbar ${isMaximized ? 'h-[calc(100vh-48px)]' : 'h-[calc(400px-48px)]'}`}
                 >
-                    <div className="whitespace-pre-wrap text-zinc-400 mb-4 font-medium leading-relaxed">
+                    <div className={`whitespace-pre-wrap ${terminalClasses.muted} mb-4 font-medium leading-relaxed`}>
                         {bootText}
-                        {isTyping && <span className="animate-pulse inline-block w-2 h-4 bg-zinc-400 ml-1 align-middle" />}
+                        {isTyping && <span className={`animate-pulse inline-block w-2 h-4 ${terminalClasses.cursor} ml-1 align-middle`} />}
                     </div>
 
                     {!isTyping && (
@@ -401,22 +417,22 @@ const Terminal = () => {
                             {history.map((item, i) => (
                                 <div key={i}>
                                     <div className="flex items-center gap-2">
-                                        <span className="text-zinc-500">~</span>
-                                        <ChevronRight size={14} className="text-zinc-500" />
-                                        <span className="text-zinc-100">{item.command}</span>
+                                        <span className={terminalClasses.muted}>~</span>
+                                        <ChevronRight size={14} className={terminalClasses.muted} />
+                                        <span className={terminalClasses.command}>{item.command}</span>
                                     </div>
                                     {item.output}
                                 </div>
                             ))}
 
                             <div className="flex items-center gap-2 mt-1 relative">
-                                <span className="text-green-500 font-bold shrink-0">~</span>
-                                <ChevronRight size={14} className="text-green-500 shrink-0" />
+                                <span className={`${terminalClasses.prompt} font-bold shrink-0`}>~</span>
+                                <ChevronRight size={14} className={`${terminalClasses.prompt} shrink-0`} />
                                 <div className="flex-1 relative flex items-center min-h-[24px]">
                                     {input === "" && demoText !== "" && (
-                                        <div className="absolute inset-0 pointer-events-none text-zinc-500 flex items-center whitespace-pre">
+                                        <div className={`absolute inset-0 pointer-events-none ${terminalClasses.muted} flex items-center whitespace-pre`}>
                                             {demoText}
-                                            <span className="w-2 h-4 bg-zinc-500 ml-1 animate-pulse" />
+                                            <span className={`w-2 h-4 ${terminalClasses.cursor} ml-1 animate-pulse`} />
                                         </div>
                                     )}
                                     <input
@@ -425,7 +441,7 @@ const Terminal = () => {
                                         value={input}
                                         onChange={(e) => setInput(e.target.value)}
                                         onKeyDown={handleKeyDown}
-                                        className={`w-full bg-transparent outline-none border-none ${input === "" && demoText !== "" ? "text-transparent caret-transparent" : "text-zinc-100 caret-zinc-100"} focus:ring-0`}
+                                        className={`w-full bg-transparent outline-none border-none ${input === "" && demoText !== "" ? "text-transparent caret-transparent" : `${terminalClasses.command} caret-[#c0caf5]`} focus:ring-0`}
                                         spellCheck={false}
                                         autoComplete="off"
                                         autoFocus

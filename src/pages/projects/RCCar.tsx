@@ -30,7 +30,7 @@ const RCCar = () => {
             </button>
 
             <div className="mb-8">
-              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-none">
+              <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
                 Embedded Systems
               </span>
             </div>
@@ -154,7 +154,7 @@ const RCCar = () => {
                 {["C++", "ESP-32", "Bluetooth HID", "Solidworks", "3D Printing", "Brushless Motors", "PWM Control"].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded"
+                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
                   >
                     {tech}
                   </span>
